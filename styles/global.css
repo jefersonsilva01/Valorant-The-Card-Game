@@ -1,0 +1,40 @@
+* {
+  box-sizing: content-box;
+}
+
+:root {
+  --white: #fff;
+  --main-red: #ff4655;
+  --main-black: #21262d;
+  --main-black-blue: rgba(33, 38, 45, 0.2);
+}
+
+@font-face {
+  font-family: JetBrainsMono-Bold;
+  src: url("../assets/fonts/JetBrainsMono-Bold.ttf");
+}
+
+@font-face {
+  font-family: JetBrainsMono-ExtraBold;
+  src: url("../assets/fonts/JetBrainsMono-ExtraBold.ttf");
+}
+
+@font-face {
+  font-family: JetBrainsMonoNL-Bold;
+  src: url("../assets/fonts/JetBrainsMonoNL-Bold.ttf");
+}
+
+@font-face {
+  font-family: JetBrainsMonoNL-ExtraBold;
+  src: url("../assets/fonts/JetBrainsMonoNL-ExtraBold.ttf");
+}
+
+@font-face {
+  font-family: Valorant;
+  src: url("../assets/fonts/Valorant\ Font.ttf");
+}
+
+body {
+  background-color: var(--main-black);
+  max-width: 1024px;
+}
