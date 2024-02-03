@@ -1,0 +1,171 @@
+#home {
+  background-image: url("../assets/images/BG.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+#menu {
+  margin-top: 32px;
+}
+
+#menu ul {
+  display: flex;
+  list-style: none;
+  justify-content: end;
+  margin-right: 141px;
+}
+
+#menu li {
+  margin-right: 24px;
+}
+
+#menu a {
+  display: flex;
+  align-items: center;
+  font-family: JetBrainsMono-Bold;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--main-red);
+}
+
+#menu span {
+  width: 0px;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#menu a:hover > span {
+  width: auto;
+  opacity: 1;
+}
+
+#menu img {
+  margin-right: 8px;
+  height: 32px;
+  width: 32px;
+}
+
+#titles {
+  margin-top: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#titles h1 {
+  height: fit-content;
+  margin-right: 18px;
+  padding-top: 28px;
+  font-family: Valorant;
+  font-weight: normal;
+  color: var(--white);
+  font-size: 166px;
+}
+
+#titles h2 {
+  font-family: JetBrainsMono-ExtraBold;
+  font-size: 36px;
+  font-weight: normal;
+  color: var(--main-red);
+  width: 100px;
+}
+
+#play-now {
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 16px;
+  position: fixed;
+  z-index: 1;
+}
+
+#play-now div {
+  font-family: JetBrainsMono-Bold;
+  font-size: 32px;
+  background-color: var(--white);
+  color: var(--main-black);
+  height: 104px;
+  width: 328px;
+  text-align: end;
+  padding: 32px 23px 0 0;
+}
+
+#play-now div:hover {
+  background-color: var(--main-red);
+  transition: ease-in 0.2s;
+  color: var(--white);
+  box-shadow: 10px 10px var(--main-black);
+}
+
+#settings {
+  color: var(--white);
+  font-family: JetBrainsMono-Bold;
+  font-size: 24px;
+  text-align: center;
+  text-decoration: none;
+
+  position: absolute;
+  bottom: 0px;
+  right: 165px;
+}
+
+#settings div {
+  padding-top: 16px;
+  height: 112px;
+  width: 158px;
+  border: 2px solid var(--white);
+}
+
+#settings img {
+  position: relative;
+  left: 35px;
+  top: 20px;
+}
+
+#settings:hover div {
+  background-color: var(--main-red);
+  border: 2px solid var(--main-red);
+  transition: ease-in 0.2s;
+  box-shadow: 10px 10px var(--main-black);
+}
+
+#characters {
+  height: 670px;
+  overflow: hidden;
+  position: relative;
+  top: -160px;
+}
+
+.char-1,
+.char-2 {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  height: 1000px;
+  width: 1300px;
+  opacity: 0;
+  transition: opacity 2s ease, transform 5s ease;
+}
+
+.char-1.loaded,
+.char-2.loaded {
+  opacity: 1;
+  height: 966px;
+  width: 1280px;
+}
+
+.char-1 {
+  left: 200px;
+  margin-left: 28px;
+}
+
+.char-2 {
+  right: 200px;
+  margin-right: 28px;
+}
