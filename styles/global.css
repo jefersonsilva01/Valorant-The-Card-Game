@@ -1,5 +1,7 @@
 * {
-  box-sizing: content-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 :root {
@@ -36,5 +38,13 @@
 
 body {
   background-color: var(--main-black);
-  max-width: 1024px;
+}
+
+#app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1440px;
 }

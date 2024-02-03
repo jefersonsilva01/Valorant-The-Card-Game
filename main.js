@@ -3,19 +3,23 @@ function main() {
   const app = document.getElementById('app');
 
   const loaderStyle = document.createElement('link');
-  const loaderScript = document.createElement('script')
+  loaderStyle.setAttribute('rel', 'stylesheet');
+  loaderStyle.setAttribute('href', './styles/loader.css');
+
+  const homeStyle = document.createElement('link');
+  homeStyle.setAttribute('rel', 'stylesheet');
+  homeStyle.setAttribute('href', './styles/home.css');
+
+  const loaderScript = document.createElement('script');
+  loaderScript.setAttribute('src', './src/loader.js');
 
   fetch('./pages/loader.html')
     .then(resp => resp.text())
     .then(html => app.innerHTML = html);
 
-
-  loaderStyle.setAttribute('rel', 'stylesheet');
-  loaderStyle.setAttribute('href', './styles/loader.css');
-
-  loaderScript.setAttribute('src', './src/loader.js');
-
   head.appendChild(loaderStyle);
+  head.appendChild(homeStyle);
+
   app.appendChild(loaderScript);
 }
 

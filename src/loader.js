@@ -5,10 +5,9 @@ function loader() {
 
   let width = 10;
 
-  const idInterval = setInterval(load, 500);
+  const idInterval = setInterval(load, 300);
 
   function load() {
-
     if (width <= 100) {
       loader.style.width = `${width}%`;
       percent.innerText = `${width}%`;
@@ -16,9 +15,14 @@ function loader() {
     } else {
       clearInterval(idInterval);
 
+      const homeScript = document.createElement('script');
+      homeScript.setAttribute('src', './src/home.js');
+
       fetch('./pages/home.html')
         .then(resp => resp.text())
         .then(html => app.innerHTML = html)
+
+      app.appendChild(homeScript);
     }
   }
 }
