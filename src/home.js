@@ -1,18 +1,18 @@
 function home() {
 
-  const chars1 = [22, 72, 52, 29];
-  const chars2 = [25, 33, 49, 60];
+  const chars1 = ['BG jett', 'BG raze', 'BG yoru', 'BG omen',];
+  const chars2 = ['BG brimstone', 'BG killjoy', 'BG phoenix', 'BG viper',];
 
   const charSelected1 = chars1[Math.floor(Math.random() * chars1.length)];
   const charSelected2 = chars2[Math.floor(Math.random() * chars2.length)];
 
   setTimeout(() => {
     const char1 = document.querySelector('.char-1');
-    char1.setAttribute('src', `../assets/images/image ${charSelected1}.png`)
+    char1.setAttribute('src', `../assets/images/${charSelected1}.png`)
     char1.classList.add('loaded');
 
     const char2 = document.querySelector('.char-2')
-    char2.setAttribute('src', `../assets/images/image ${charSelected2}.png`)
+    char2.setAttribute('src', `../assets/images/${charSelected2}.png`)
     char2.classList.add('loaded');
   }, 1000);
 
@@ -25,38 +25,38 @@ function home() {
   const modalTitle = document.getElementById("modal-title");
   const modalContent = document.getElementById("modal-content");
 
-  const textRules = `OBJETIVO
+  const textRules = `GOAL
     <br><br>
-    Ganhar todas as cartas do baralho.
+    Win all the cards in the deck.
     <br><br>
-    O JOGO
+    THE GAME
     <br><br>
-    O jogo baseia-se na comparação dos valores de sua carta com a dos outro jogador. Para sua carta vencer, a característica escolhida precisa ter valor maior do que a carta dos seu adversário.
-    Quando sua carta vence, você ganha a carta do seu adversário e a próxima carta de sua pilha aparece para uma nova jogada.
+    The game is based on comparing the values ​​of your card with those of the other player. For your card to win, the chosen characteristic must have a higher value than your opponent's card.
+    When your card wins, you win your opponent's card and the next card in your pile appears for a new turn.
     <br><br>
-    PLACAR
-    O placar mostra o número de cartas que você e seus adversários possuem. O placar vai se alterando automaticamente a cada rodada.
-    Em caso de empate as cartas voltam para pra o fim da pilha de cada jogador e uma nova rodada inicia.
+    SCOREBOARD
     <br><br>
-    COMO JOGAR
+    The scoreboard shows the number of cards you and your opponents have. The score changes automatically with each round.
+    In case of a tie, the cards are returned to the bottom of each player's pile and a new round begins.
     <br><br>
-    1. Para iniciar, escolha entre as informações da sua carta, aquela que você julga ter o valor capaz de vencer as cartas dos seus adversários.
+    HOW TO PLAY
     <br><br>
-    Se você vencer - a carta do outro jogador irá para trás do seu monte de cartas e você continua escolhendo a informação da sua próxima carta.
-    Se o outro jogador vencer - sua carta irá para trás do monte de cartas dele e a vez de escolher passa para ele.
-    Em caso de empate - as cartas irão para trás do monte de cada jogador e uma nova disputa é feita, sendo que o jogador que escolheu as cartas que empataram deve escolher novamente. 
+    1. To start, choose from the information on your card the one that you think has the value capable of beating your opponents' cards.
     <br><br>
-    2. FIM DO JOGO
-    O jogo termina quando um dos jogadores ganhar todas as cartas do baralho
+    If you win - the other player's card will go to the back of your pile of cards and you continue choosing the information for your next card.
+    If the other player wins - his card will go behind his pile of cards and the turn to choose passes to him.
+    In case of a tie - the cards will go behind each player's pile and a new dispute is held, with the player who chose the cards that tied must choose again.
+    <br><br>
+    2. The game ends when one of the players wins all the cards in the deck
     <br><br>`
 
-  const textAbout = `Em meio à efervescência criativa do universo acadêmico, emerge um projeto singular que busca unir a paixão pelo desenvolvimento de software à atmosfera eletrizante de um jogo de estratégia. Inspirado no clássico Super Trunfo e imerso no intrigante universo de Valorant, esta iniciativa tem como propósito fundamental transcender os limites da sala de aula, transformando a aprendizagem em uma experiência envolvente.
+  const textAbout = `Amid the creative effervescence of the academic universe, a unique project emerges that seeks to unite the passion for software development with the electrifying atmosphere of a strategy game. Inspired by the classic Super Trunfo and immersed in the intriguing universe of Valorant, this initiative's fundamental purpose is to transcend the limits of the classroom, transforming learning into an engaging experience.
   <br><br>
-  Cada linha de código meticulosamente escrita tem o objetivo de criar uma adaptação fiel e emocionante do universo de Valorant, transformando conceitos teóricos em uma vivência prática e dinâmica. O intuito não é apenas fornecer entretenimento, mas também oferecer aos acadêmicos a oportunidade de aplicar seus conhecimentos de maneira lúdica, desenvolvendo habilidades estratégicas e cognitivas de forma inovadora.
+  Each meticulously written line of code aims to create a faithful and exciting adaptation of the Valorant universe, transforming theoretical concepts into a practical and dynamic experience. The aim is not only to provide entertainment, but also to offer academics the opportunity to apply their knowledge in a playful way, developing strategic and cognitive skills in an innovative way.
   <br><br>
-  Ao invés de simplesmente replicar, o projeto busca enriquecer a experiência dos participantes, proporcionando um mergulho profundo nas nuances do jogo. Cada carta desenvolvida representa não apenas um elemento de Valorant, mas também uma oportunidade para os acadêmicos explorarem as complexidades da programação de jogos. A autenticidade é a chave, e cada detalhe visa criar uma simbiose única entre o aprendizado técnico e o universo virtual.
+  Instead of simply replicating, the project seeks to enrich the experience of participants, providing a deep dive into the nuances of the game. Each card developed represents not only an element of Valorant, but also an opportunity for scholars to explore the intricacies of game programming. Authenticity is key, and every detail aims to create a unique symbiosis between technical learning and the virtual universe.
   <br><br>
-  Em última análise, este projeto acadêmico almeja ir além das fronteiras tradicionais do ensino, integrando conhecimento teórico com a prática envolvente e empolgante dos jogos eletrônicos. Ao unir a criatividade dos acadêmicos à riqueza do universo de Valorant, a iniciativa visa não apenas formar profissionais competentes, mas também estimular uma nova forma de aprendizado, onde a diversão e a educação caminham lado a lado em um desafio eletrizante e acadêmico.
+  Ultimately, this academic project aims to go beyond the traditional boundaries of teaching, integrating theoretical knowledge with the engaging and exciting practice of electronic games. By combining the creativity of academics with the richness of the Valorant universe, the initiative aims not only to train competent professionals, but also to stimulate a new way of learning, where fun and education go hand in hand in an electrifying and academic challenge.
   <br><br>`
 
   btnRules.onclick = function (e) {
@@ -90,9 +90,9 @@ function home() {
     }
   }
 
-  // const sound = document.getElementById('sound');
-  // sound.currentTime = 0;
-  // sound.play();
+  const sound = document.getElementById('sound');
+  sound.currentTime = 0;
+  sound.play();
 
   btnPlayGame = document.getElementById("play-now");
 
