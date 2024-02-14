@@ -165,18 +165,18 @@
 
 #modal {
   display: none;
-  background-color: #21262d;
   width: 763px;
   height: 504px;
   padding: 16px;
-  position: fixed;
+  position: absolute;
   z-index: 1;
   top: 25%;
   left: 20%;
+  background-color: var(--main-black);
 }
 
 #modal-area {
-  border: 3px solid #ff4655;
+  border: 3px solid var(--main-red);
   height: 472px;
   padding: 16px;
   display: flex;
@@ -184,7 +184,7 @@
 }
 
 #modal-header {
-  background-color: #ff4655;
+  background-color: var(--main-red);
   width: 699px;
   height: 48px;
   display: flex;
@@ -210,12 +210,12 @@
 }
 
 #modal-content {
-  border: 2px solid #ff4655;
+  border: 2px solid var(--main-red);
   width: 699px;
   height: 376px;
   margin-top: 16px;
   overflow-y: auto;
-  color: white;
+  color: var(--white);
   font-family: JetBrainsMono-Bold;
   padding: 16px;
 }

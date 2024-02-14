@@ -1,0 +1,163 @@
+#game {
+  background-image: url("../assets/images/BG.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+#timer {
+  color: var(--main-red);
+  font-family: Valorant;
+  font-size: 32px;
+  border-top: 3px solid var(--main-red);
+  border-bottom: 3px solid var(--main-red);
+  padding: 8px 0;
+  float: right;
+  margin-right: 260px;
+  margin-top: 64px;
+}
+
+#game-area {
+  display: flex;
+  font-family: Valorant;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  top: 200px;
+  left: 200px;
+}
+
+#game-area h3 {
+  font-size: 32px;
+  color: var(--main-red);
+  text-align: center;
+  border: 1px solid var(--main-red);
+  width: 284px;
+  height: 64px;
+  padding-top: 16px;
+  margin-bottom: 24px;
+}
+
+.card-area {
+  width: 285px;
+  height: 480px;
+  background-color: var(--main-black);
+  border: 4px solid var(--main-red);
+  margin-bottom: 24px;
+}
+
+#game-area span {
+  font-size: 32px;
+  color: var(--main-red);
+  text-align: center;
+  border: 1px solid var(--main-red);
+  padding: 8px 24px;
+}
+
+.info-cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+#game-area h1 {
+  font-size: 48px;
+  color: var(--white);
+  display: inline-block;
+}
+
+#game-area img {
+  width: 44px;
+  height: 44px;
+  margin: 0px 16px;
+}
+
+#game-area a {
+  display: block;
+  text-decoration: none;
+  color: var(--white);
+  font-size: 32px;
+  text-align: center;
+  margin-top: 64px;
+}
+
+#game-area a:hover {
+  color: var(--main-red);
+}
+
+#input {
+  display: none;
+  background-color: var(--main-black);
+  width: 763px;
+  height: 247px;
+  padding: 16px;
+  position: absolute;
+  z-index: 1;
+  top: 25%;
+  left: 20%;
+}
+
+#input-area {
+  border: 3px solid var(--main-red);
+  height: 215px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+#input-header {
+  background-color: var(--main-red);
+  width: 699px;
+  height: 48px;
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#input-header h3 {
+  font-family: Valorant;
+  font-size: 24px;
+  margin-left: 16px;
+}
+
+#input-header span {
+  background-color: unset;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+#input-header img {
+  width: 16px;
+  height: 16px;
+}
+
+#input input {
+  align-self: center;
+  width: 642px;
+  height: 60px;
+  background-color: unset;
+  border: 1.2px solid var(--main-red);
+  margin-top: 24px;
+  font-size: 24px;
+  font-family: JetBrainsMono-Bold;
+  padding-left: 16px;
+  color: var(--main-red);
+}
+
+#input a {
+  color: var(--white);
+  font-size: 24px;
+  font-family: JetBrainsMono-Bold;
+  text-decoration: none;
+  margin-top: 16px;
+  text-align: end;
+  display: inline-block;
+  margin-right: 32px;
+}
+
+#input a:hover {
+  color: var(--main-red);
+}

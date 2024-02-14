@@ -84,9 +84,31 @@ function home() {
     modal.style.display = "none";
   }
 
+  window.onclick = function (event) {
+    if (event.target.id === 'home') {
+      modal.style.display = "none";
+    }
+  }
+
   // const sound = document.getElementById('sound');
   // sound.currentTime = 0;
   // sound.play();
+
+  btnPlayGame = document.getElementById("play-now");
+
+  const gameScript = document.createElement('script');
+  gameScript.setAttribute('src', './src/game.js');
+
+  btnPlayGame.onclick = function (e) {
+    e.preventDefault();
+
+    fetch('../pages/game.html')
+      .then(resp => resp.text())
+      .then(html => app.innerHTML = html)
+
+    app.appendChild(gameScript);
+
+  }
 }
 
 home()

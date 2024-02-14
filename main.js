@@ -10,6 +10,10 @@ function main() {
   homeStyle.setAttribute('rel', 'stylesheet');
   homeStyle.setAttribute('href', './styles/home.css');
 
+  const gameStyle = document.createElement('link');
+  gameStyle.setAttribute('rel', 'stylesheet');
+  gameStyle.setAttribute('href', './styles/game.css');
+
   const loaderScript = document.createElement('script');
   loaderScript.setAttribute('src', './src/loader.js');
 
@@ -19,6 +23,7 @@ function main() {
 
   head.appendChild(loaderStyle);
   head.appendChild(homeStyle);
+  head.appendChild(gameStyle);
 
   app.appendChild(loaderScript);
 }
