@@ -17,13 +17,13 @@ function home() {
   }, 1000);
 
   const modal = document.getElementById("modal");
+  const modalTitle = document.getElementById("modal-title");
+  const modalContent = document.getElementById("modal-content");
+
   const btnRules = document.getElementById("rules");
   const btnAbout = document.getElementById("about");
   const btnLeaderboards = document.getElementById("leaderboards");
   const btnClose = document.getElementById("close");
-
-  const modalTitle = document.getElementById("modal-title");
-  const modalContent = document.getElementById("modal-content");
 
   const textRules = `GOAL
     <br><br>
@@ -73,12 +73,32 @@ function home() {
     modalContent.innerHTML = textAbout;
   }
 
-  // btnLeaderboards.onclick = function (e) {
-  //   e.preventDefault();
-  //   modal.style.display = "block";
+  btnLeaderboards.onclick = function (e) {
+    e.preventDefault();
 
-  //   modalTitle.innerText = "Leaderboards";
-  // }
+    const listLeaderboards = document.createElement('div');
+
+    data.forEach(element => {
+      const divLeaderboards = document.createElement('div');
+      divLeaderboards.setAttribute('id', 'leaderItem');
+
+      const spanName = document.createElement("span");
+      spanName.innerText = "//" + element.name;
+
+      const spanTime = document.createElement("span");
+      spanTime.innerText = element.time;
+
+      divLeaderboards.appendChild(spanName);
+      divLeaderboards.appendChild(spanTime);
+
+      listLeaderboards.appendChild(divLeaderboards);
+    });
+
+    modalContent.innerHTML = '';
+    modalContent.appendChild(listLeaderboards);
+    modal.style.display = "block";
+    modalTitle.innerText = "Leaderboards";
+  }
 
   btnClose.onclick = function () {
     modal.style.display = "none";
@@ -94,7 +114,10 @@ function home() {
   sound.currentTime = 0;
   sound.play();
 
-  btnPlayGame = document.getElementById("play-now");
+  const btnPlayGame = document.getElementById("play-now");
+
+  const charactersData = document.createElement('script');
+  charactersData.setAttribute('src', './src/data/characters.js');
 
   const gameScript = document.createElement('script');
   gameScript.setAttribute('src', './src/game.js');
@@ -106,9 +129,9 @@ function home() {
       .then(resp => resp.text())
       .then(html => app.innerHTML = html)
 
+    app.appendChild(charactersData);
     app.appendChild(gameScript);
-
   }
 }
 
-home()
+home();

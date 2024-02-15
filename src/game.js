@@ -1,5 +1,12 @@
 function game() {
 
+  //Begin game logic
+  console.log(characters);
+
+
+  //End game logic
+
+
   setTimeout(() => {
     const soundId = Math.floor(Math.random() * (5 - 1) + 1)
 

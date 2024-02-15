@@ -89,7 +89,8 @@
 
 #input {
   display: none;
-  background-color: var(--main-black);
+  background-color: var(--white);
+  backdrop-filter: blur(5px);
   width: 763px;
   height: 247px;
   padding: 16px;
@@ -148,7 +149,7 @@
 }
 
 #input a {
-  color: var(--white);
+  color: var(--main-black);
   font-size: 24px;
   font-family: JetBrainsMono-Bold;
   text-decoration: none;
@@ -161,3 +162,7 @@
 #input a:hover {
   color: var(--main-red);
 }
+
+/* Begin game style */
+
+/* End game style */

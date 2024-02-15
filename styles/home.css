@@ -1,5 +1,5 @@
 #home {
-  background-image: url("../assets/images/BG.png");
+  background-image: url("../assets/images/BG\ valorant.gif");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -9,7 +9,9 @@
 }
 
 #menu {
-  margin-top: 32px;
+  padding-top: 12px;
+  backdrop-filter: blur(5px);
+  height: 60px;
 }
 
 #menu ul {
@@ -43,6 +45,7 @@
 #menu a:hover > span {
   width: auto;
   opacity: 1;
+  text-shadow: 2px 2px var(--main-black);
 }
 
 #menu img {
@@ -72,7 +75,8 @@
   font-family: JetBrainsMono-ExtraBold;
   font-size: 36px;
   font-weight: normal;
-  color: var(--main-red);
+  color: var(--white);
+  z-index: 1;
   width: 100px;
 }
 
@@ -85,7 +89,7 @@
   display: inline-block;
   z-index: 1;
   font-family: JetBrainsMono-Bold;
-  font-size: 32px;
+  font-size: 36px;
   text-align: center;
   color: var(--white);
 }
@@ -93,6 +97,7 @@
 #play-now:hover {
   transition: ease-in 0.2s;
   color: var(--main-red);
+  text-shadow: 2px 2px var(--main-black);
 }
 
 #settings {
@@ -172,7 +177,8 @@
   z-index: 1;
   top: 25%;
   left: 20%;
-  background-color: var(--main-black);
+  background-color: var(--main-black-blur);
+  backdrop-filter: blur(5px);
 }
 
 #modal-area {
@@ -218,4 +224,22 @@
   color: var(--white);
   font-family: JetBrainsMono-Bold;
   padding: 16px;
+}
+
+#leaderItem {
+  margin: 16px 8px;
+  width: 642px;
+  height: 60px;
+  border: 1px solid var(--main-red);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#leaderItem span {
+  color: var(--main-red);
+  font-size: 16px;
+  font-family: JetBrainsMono-Bold;
+  text-transform: uppercase;
+  padding: 0 16px;
 }

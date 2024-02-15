@@ -3,7 +3,7 @@ function loader() {
   let percent = document.getElementById('percent');
   percent.innerText = '0%'
 
-  let width = 10;
+  let width = 95;
 
   const idInterval = setInterval(load, 300);
 
@@ -15,6 +15,9 @@ function loader() {
     } else {
       clearInterval(idInterval);
 
+      const dataLeaderboards = document.createElement('script');
+      dataLeaderboards.setAttribute('src', '../src/data/leaderboards.js');
+
       const homeScript = document.createElement('script');
       homeScript.setAttribute('src', './src/home.js');
 
@@ -22,6 +25,7 @@ function loader() {
         .then(resp => resp.text())
         .then(html => app.innerHTML = html)
 
+      app.appendChild(dataLeaderboards);
       app.appendChild(homeScript);
     }
   }
