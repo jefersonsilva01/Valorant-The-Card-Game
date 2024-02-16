@@ -1,8 +1,18 @@
-#home {
+#bg {
   background-image: url("../assets/images/BG\ valorant.gif");
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  max-width: 1440px;
+  position: absolute;
+}
+
+#home {
+  background-color: unset;
   height: 100vh;
   width: 100%;
   position: relative;
@@ -10,7 +20,6 @@
 
 #menu {
   padding-top: 12px;
-  backdrop-filter: blur(5px);
   height: 60px;
 }
 
@@ -100,38 +109,6 @@
   text-shadow: 2px 2px var(--main-black);
 }
 
-#settings {
-  color: var(--white);
-  font-family: JetBrainsMono-Bold;
-  font-size: 24px;
-  text-align: center;
-  text-decoration: none;
-
-  position: absolute;
-  bottom: 0px;
-  right: 165px;
-}
-
-#settings div {
-  padding-top: 16px;
-  height: 112px;
-  width: 158px;
-  border: 2px solid var(--white);
-}
-
-#settings img {
-  position: relative;
-  left: 35px;
-  top: 20px;
-}
-
-#settings:hover div {
-  background-color: var(--main-red);
-  border: 2px solid var(--main-red);
-  transition: ease-in 0.2s;
-  box-shadow: -10px -10px var(--main-black);
-}
-
 #characters {
   height: 670px;
   overflow: hidden;
@@ -175,10 +152,11 @@
   padding: 16px;
   position: absolute;
   z-index: 1;
-  top: 25%;
+  top: 20%;
   left: 20%;
   background-color: var(--main-black-blur);
   backdrop-filter: blur(5px);
+  box-shadow: 10px 10px var(--main-black);
 }
 
 #modal-area {

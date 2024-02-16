@@ -98,6 +98,7 @@
   z-index: 1;
   top: 25%;
   left: 20%;
+  box-shadow: 10px 10px var(--main-black);
 }
 
 #input-area {
@@ -164,5 +165,78 @@
 }
 
 /* Begin game style */
+.card-player,
+.card-cpu {
+  border: 3.2px solid var(--white) !important;
+  width: 285px;
+  height: 480px;
+  position: absolute;
+  top: 88px;
+}
+
+.card-player {
+  left: 0px;
+}
+
+.card-cpu {
+  right: 0px;
+}
+
+.card-info {
+  /* background-color: var(--main-black-blur); */
+  background: rgb(27, 29, 32);
+  background: linear-gradient(
+    0deg,
+    rgba(27, 29, 32, 1) 0%,
+    rgba(45, 45, 48, 1) 46%,
+    rgba(32, 56, 61, 0) 100%
+  );
+  position: absolute;
+  bottom: 0;
+  padding: 8px;
+  width: 100%;
+  display: block;
+}
+
+.card-info .name {
+  font-size: 28px !important;
+  font-family: Valorant !important;
+  color: var(--white) !important;
+  display: inline-block;
+  border: none !important;
+}
+
+.class {
+  width: 24px !important;
+  height: 24px !important;
+  float: right !important;
+  margin-top: 8px !important;
+}
+
+.skill {
+  display: flex;
+  justify-content: space-between;
+}
+
+.skill span {
+  font-size: 20px !important;
+  font-family: Valorant !important;
+  color: var(--white) !important;
+  text-align: center;
+  border: none !important;
+}
+
+.skill span:hover {
+  color: var(--main-red) !important;
+  cursor: pointer;
+}
+
+.info {
+  height: 24px !important;
+  width: 24px !important;
+  float: right;
+  margin-top: 16px !important;
+  cursor: pointer;
+}
 
 /* End game style */

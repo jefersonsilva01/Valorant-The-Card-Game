@@ -110,14 +110,17 @@ function home() {
     }
   }
 
-  const sound = document.getElementById('sound');
-  sound.currentTime = 0;
-  sound.play();
+  // const sound = document.getElementById('sound');
+  // sound.currentTime = 0;
+  // sound.play();
 
   const btnPlayGame = document.getElementById("play-now");
 
   const charactersData = document.createElement('script');
   charactersData.setAttribute('src', './src/data/characters.js');
+
+  const CardGame = document.createElement('script');
+  CardGame.setAttribute('src', './src/CardGame.js');
 
   const gameScript = document.createElement('script');
   gameScript.setAttribute('src', './src/game.js');
@@ -130,6 +133,7 @@ function home() {
       .then(html => app.innerHTML = html)
 
     app.appendChild(charactersData);
+    app.appendChild(CardGame);
     app.appendChild(gameScript);
   }
 }

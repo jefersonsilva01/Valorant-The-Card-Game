@@ -3,15 +3,15 @@ function loader() {
   let percent = document.getElementById('percent');
   percent.innerText = '0%'
 
-  let width = 95;
+  let width = 10;
 
-  const idInterval = setInterval(load, 300);
+  const idInterval = setInterval(load, 40);
 
   function load() {
     if (width <= 100) {
       loader.style.width = `${width}%`;
       percent.innerText = `${width}%`;
-      width += 5;
+      width += 1;
     } else {
       clearInterval(idInterval);
 
