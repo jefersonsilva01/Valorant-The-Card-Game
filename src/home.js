@@ -110,20 +110,24 @@ function home() {
     }
   }
 
-  // const sound = document.getElementById('sound');
-  // sound.currentTime = 0;
-  // sound.play();
+  const sound = document.getElementById('sound');
+
+  function playSound() {
+    sound.currentTime = 0;
+    sound.play();
+  }
+
+  sound.addEventListener('loadedmetadata', () => {
+    setTimeout(playSound, 1000);
+  });
+
+  sound.addEventListener('ended', () => {
+    setTimeout(playSound, 1000);
+  });
+
 
   const btnPlayGame = document.getElementById("play-now");
 
-  const charactersData = document.createElement('script');
-  charactersData.setAttribute('src', './src/data/characters.js');
-
-  const CardGame = document.createElement('script');
-  CardGame.setAttribute('src', './src/CardGame.js');
-
-  const gameScript = document.createElement('script');
-  gameScript.setAttribute('src', './src/game.js');
 
   btnPlayGame.onclick = function (e) {
     e.preventDefault();
@@ -132,8 +136,17 @@ function home() {
       .then(resp => resp.text())
       .then(html => app.innerHTML = html)
 
+    const charactersData = document.createElement('script');
+    charactersData.setAttribute('src', './src/data/characters.js');
+
+    const CardGame = document.createElement('script');
+    CardGame.setAttribute('src', './src/CardGame.js');
+
     app.appendChild(charactersData);
     app.appendChild(CardGame);
+
+    const gameScript = document.createElement('script');
+    gameScript.setAttribute('src', './src/game.js');
     app.appendChild(gameScript);
   }
 }

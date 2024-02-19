@@ -125,7 +125,7 @@
   height: 1000px;
   width: 1300px;
   opacity: 0;
-  transition: opacity 2s ease, transform 5s ease;
+  transition: opacity 2s ease, transform 2s ease;
 }
 
 .char-1.loaded,
@@ -212,12 +212,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: var(--main-red);
 }
 
 #leaderItem span {
-  color: var(--main-red);
   font-size: 16px;
   font-family: JetBrainsMono-Bold;
   text-transform: uppercase;
   padding: 0 16px;
+}
+
+#leaderItem:hover {
+  border: 3.2px solid var(--white);
+  background-color: var(--main-red);
+  color: var(--main-black);
 }
