@@ -4,6 +4,8 @@ class CardGame {
     this.cardsShuffle = [];
     this.PlayerCards = [];
     this.CPUCards = [];
+    this.skillsPlayer = { name: '', skill: 0 };
+    this.skillsCPU = { name: '', skill: 0 };
   }
 
   shuffleCards(array = this.cards) {
@@ -22,5 +24,24 @@ class CardGame {
         this.CPUCards.push(card);
       }
     })
+  }
+
+  discard(arrayWin, arrayLose) {
+    arrayWin.push(arrayLose.shift());
+  }
+
+  compareSkills() {
+    if (this.skillsPlayer.skill > this.skillsCPU.skill) {
+      this.discard(this.PlayerCards, this.CPUCards);
+      return 'playerWin';
+    } else if (this.skillsPlayer.skill < this.skillsCPU.skill) {
+      this.discard(this.CPUCards, this.PlayerCards);
+      return 'cpuWin';
+    } else {
+      this.PlayerCards.push(this.PlayerCards.shift())
+      this.CPUCards.push(this.CPUCards.shift())
+      return;
+    }
+
   }
 }
