@@ -239,7 +239,7 @@ function game() {
     playGame.CPUCards.forEach(card => {
       if (card.id === cardCPUId) {
         for (skillItem in card.skills) {
-          if (card.skills[skillItem] > maxSkill) {
+          if (card.skills[skillItem] > maxSkill && card.skills[skillItem] <= 7) {
             maxSkill = card.skills[skillItem]
             nameSkill = skillItem;
           }
@@ -284,6 +284,7 @@ function game() {
         cardPlayer.remove();
         createCards(playGame.CPUCards, 'cpu');
         createCards(playGame.PlayerCards, 'player');
+        setSkills('player');
         modalCards();
         setStyle();
       }, 3000)
@@ -405,8 +406,4 @@ function game() {
   });
 }
 
-game()
-
-// Falta
-// Bio cards
-// Tests
+game();
