@@ -3,6 +3,9 @@ function game() {
   const input = document.getElementById("input");
   const btnConfirm = document.getElementById("confirm");
   const timer = document.getElementById('timer');
+  const modalCard = document.getElementById('modal-card');
+  const modalCardTitle = document.getElementById('modal-card-title');
+  const modalCardArea = document.getElementById('modal-card-area');
   const cardsPlayer = document.getElementById('cards-player');
   const playerScore = document.getElementById('score-player');
   const playerTurn = document.getElementById('player-turn');
@@ -18,7 +21,7 @@ function game() {
   playGame.shuffleCards();
   playGame.getCards();
 
-  function chrinometer() {
+  function chronometer() {
     let seconds = 0;
     let milleSeconds = 0;
 
@@ -65,7 +68,7 @@ function game() {
 
     cardFront = `
       <div id="${card.id}" class="card-${player}" style="background-image: url(${card.cover});">      
-        <img class="info" src="../assets/images/info.svg">
+        <img class="info-${player}" src="../assets/images/info.svg">
         <div class="card-info">
           <span class="name">${card.name}</span>
           <img class="class" src='${card.class}'>
@@ -147,6 +150,7 @@ function game() {
       updateScreen();
       cardCPU.remove();
       createCards(playGame.CPUCards, 'cpu');
+      modalCards();
       cpuPlayCard();
     }, 3000);
   }
@@ -165,6 +169,7 @@ function game() {
       updateScreen();
       cardPlayer.remove();
       createCards(playGame.PlayerCards, 'player');
+      modalCards();
       setSkills('player');
     }, 3000)
   }
@@ -218,6 +223,7 @@ function game() {
           cardPlayer.remove();
           createCards(playGame.CPUCards, 'cpu');
           createCards(playGame.PlayerCards, 'player');
+          modalCards();
           setStyle();
           cpuPlayCard();
         }, 3000)
@@ -278,6 +284,7 @@ function game() {
         cardPlayer.remove();
         createCards(playGame.CPUCards, 'cpu');
         createCards(playGame.PlayerCards, 'player');
+        modalCards();
         setStyle();
       }, 3000)
     }
@@ -314,13 +321,58 @@ function game() {
     app.appendChild(homeScript);
   }
 
+  function modalCards() {
+    const infoCardPlayer = document.querySelector('.info-player');
+    const infoCardCPU = document.querySelector('.info-cpu');
+
+    const cardPlayerId = parseInt(document.querySelector('.card-player').id);
+    const cardCPUId = parseInt(document.querySelector('.card-cpu').id);
+
+    const divText = document.createElement('div')
+    divText.setAttribute('id', 'modal-card-content');
+
+    infoCardPlayer.onmouseover = () => {
+      characters.forEach(card => {
+        if (card.id === cardPlayerId) {
+          divText.innerText = card.bio
+          modalCardArea.appendChild(divText);
+          modalCardTitle.innerText = card.name;
+          modalCard.style.display = 'block';
+        }
+      })
+    };
+
+    infoCardCPU.onmouseover = () => {
+      characters.forEach(card => {
+        if (card.id === cardCPUId) {
+          divText.innerText = card.bio;
+          modalCardArea.appendChild(divText);
+          modalCardTitle.innerText = card.name;
+          modalCard.style.display = 'block';
+        }
+      })
+    };
+
+    infoCardPlayer.onmouseleave = () => {
+      modalCard.style.display = 'none';
+      modalCardArea.removeChild(modalCardArea.lastElementChild);
+    }
+
+    infoCardCPU.onmouseleave = () => {
+      modalCard.style.display = 'none';
+      modalCardArea.removeChild(modalCardArea.lastElementChild);
+    }
+
+  }
+
   function startGame() {
     setStyle();
     updateScreen();
     createCards(playGame.PlayerCards, 'player');
     createCards(playGame.CPUCards, 'cpu');
     setSkills('player');
-    chrinometer();
+    chronometer();
+    modalCards();
   }
 
   startGame();
