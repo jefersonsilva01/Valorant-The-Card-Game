@@ -6,6 +6,8 @@
   height: 100vh;
   width: 100%;
   position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 #timer {
@@ -39,6 +41,13 @@
   height: 64px;
   padding-top: 16px;
   margin-bottom: 24px;
+}
+
+.turn {
+  background-color: var(--main-red);
+  color: var(--white) !important;
+  border: 3.2px solid var(--white) !important;
+  box-shadow: 10px 10px var(--main-black);
 }
 
 .card-area {
@@ -164,7 +173,7 @@
   color: var(--main-red);
 }
 
-/* Begin game style */
+/* Begin card style */
 .card-flip-player,
 .card-flip-cpu {
   border: 3.2px solid var(--white) !important;
@@ -268,4 +277,28 @@
   cursor: pointer;
 }
 
-/* End game style */
+.remove-player-left {
+  rotate: -30deg;
+  left: -600px;
+  transition: rotate 1s ease, left 1s ease-out;
+}
+
+.remove-player-right {
+  rotate: 30deg;
+  left: 1200px;
+  transition: rotate 1s ease, left 1s ease-out;
+}
+
+.remove-cpu-left {
+  rotate: -30deg;
+  right: 1200px;
+  transition: rotate 1s ease, right 1s ease-out;
+}
+
+.remove-cpu-right {
+  rotate: 30deg;
+  right: -800px;
+  transition: rotate 1s ease, right 1s ease-out;
+}
+
+/* End card style */

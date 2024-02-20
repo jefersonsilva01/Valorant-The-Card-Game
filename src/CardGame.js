@@ -42,6 +42,13 @@ class CardGame {
       this.CPUCards.push(this.CPUCards.shift())
       return;
     }
+  }
 
+  gameEnded() {
+    if (this.PlayerCards.length === 0) {
+      return 'player lose';
+    } else if (this.CPUCards.length === 0) {
+      return 'cpu lose';
+    }
   }
 }

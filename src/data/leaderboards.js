@@ -1,31 +1,6 @@
-const data = [
+const leaders = [
   {
-    name: "name",
-    time: "00:04:00.00"
-  },
-
-  {
-    name: "name",
-    time: "00:04:00.00"
-  },
-
-  {
-    name: "name",
-    time: "00:04:00.00"
-  },
-
-  {
-    name: "name",
-    time: "00:04:00.00"
-  },
-
-  {
-    name: "name",
-    time: "00:04:00.00"
-  },
-
-  {
-    name: "name",
-    time: "00:04:00.00"
+    name: 'Jef',
+    time: '08:02:39'
   }
-]
+];

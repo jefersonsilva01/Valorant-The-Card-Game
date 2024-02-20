@@ -1,18 +1,51 @@
 function game() {
   const gameArea = document.getElementById("game-area");
-  const playerTurn = document.getElementById('player-turn');
-  const cpuTurn = document.getElementById('cpu-turn');
-  let cpuTurnStats = 0;
+  const input = document.getElementById("input");
+  const btnConfirm = document.getElementById("confirm");
+  const timer = document.getElementById('timer');
   const cardsPlayer = document.getElementById('cards-player');
-  const cardsCPU = document.getElementById('cards-cpu');
   const playerScore = document.getElementById('score-player');
+  const playerTurn = document.getElementById('player-turn');
+  const cardsCPU = document.getElementById('cards-cpu');
   const cpuScore = document.getElementById('score-cpu');
+  const cpuTurn = document.getElementById('cpu-turn');
   const btnPlay = document.getElementById('play');
+  let turnStats = 0;
+  let intervaleIdMilleseconds, intervaleIdSeconds;
 
   //Begin game logic
   const playGame = new CardGame(characters);
   playGame.shuffleCards();
   playGame.getCards();
+
+  function chrinometer() {
+    let seconds = 0;
+    let milleSeconds = 0;
+
+    intervaleIdMilleseconds = setInterval(() => {
+      milleSeconds++;
+      let minutesText = Math.floor(seconds / 60) < 10
+        ? '0' + Math.floor(seconds / 60)
+        : seconds % 60;
+
+      let secondsText = seconds % 60 < 10 ? '0' + seconds % 60 : seconds % 60
+      timer.innerText = minutesText + ':' + secondsText + '.' + '0' + milleSeconds % 10;
+    }, 100);
+
+    intervaleIdSeconds = setInterval(() => {
+      seconds++;
+    }, 1000);
+  }
+
+  function setStyle() {
+    if (turnStats === 0) {
+      playerTurn.classList.add('turn');
+      cpuTurn.classList.remove('turn');
+    } else if (turnStats === 1) {
+      playerTurn.classList.remove('turn');
+      cpuTurn.classList.add('turn');
+    }
+  }
 
   function createCards(arrayCards, player) {
     const card = arrayCards[0]
@@ -20,7 +53,7 @@ function game() {
     cardContainer.classList.add(`card-flip-${player}-fliped`, `card-flip-${player}`);
 
     const cardInner = document.createElement('div');
-    cardInner.setAttribute('class', 'card-inner');
+    cardInner.classList.add('card-inner');
 
     if (player === 'player') {
       cardContainer.onclick = () => {
@@ -75,77 +108,219 @@ function game() {
     gameArea.appendChild(cardContainer);
   }
 
-  playerTurn.style.backgroundColor = '#ff4655';
-  playerTurn.style.color = '#1b1d20';
-
-  function setSkillsPlayer() {
-    document.querySelectorAll('.skill-player').forEach(skill => {
-      skill.onclick = () => {
-        playerScore.innerText = skill.children[1].innerText;
-        playGame.skillsPlayer.name = skill.children[0].innerText;
-        playGame.skillsPlayer.skill = parseInt(skill.children[1].innerText);
-      }
-    });
-  }
-
-  function setSkillsCPU() {
-    document.querySelectorAll('.skill-cpu').forEach(skill => {
-      if (skill.children[0].innerText === playGame.skillsPlayer.name) {
-        playGame.skillsCPU.name = skill.children[0].innerText;
-        playGame.skillsCPU.skill = parseInt(skill.children[1].innerText);
-      };
-    });
+  function setSkills(player) {
+    if (player === 'player') {
+      document.querySelectorAll(`.skill-${player}`).forEach(skill => {
+        skill.onclick = () => {
+          playerScore.innerText = skill.children[1].innerText;
+          playGame.skillsPlayer.name = skill.children[0].innerText;
+          playGame.skillsPlayer.skill = parseInt(skill.children[1].innerText);
+        }
+      });
+    } else if (player === 'cpu') {
+      document.querySelectorAll(`.skill-${player}`).forEach(skill => {
+        if (skill.children[0].innerText === playGame.skillsPlayer.name) {
+          playGame.skillsCPU.name = skill.children[0].innerText;
+          playGame.skillsCPU.skill = parseInt(skill.children[1].innerText);
+        };
+      });
+    }
   }
 
   function updateScreen() {
-    cpuScore.innerText = '0';
-    playerScore.innerText = '0';
+    cpuScore.innerText = '00';
+    playerScore.innerText = '00';
     cardsPlayer.innerText = playGame.PlayerCards.length;
     cardsCPU.innerText = playGame.CPUCards.length;
   }
 
-  function playCards() {
+  function playerWin() {
+    let cardCPU = document.querySelector('.card-flip-cpu');
+    cardCPU.classList.remove('card-flip-cpu-fliped');
+    cpuScore.innerText = playGame.skillsCPU.skill;
+    setTimeout(() => {
+      cardCPU.classList.add('remove-cpu-left');
+    }, 1000);
+    turnStats = 1;
+    setTimeout(() => {
+      setStyle();
+      updateScreen();
+      cardCPU.remove();
+      createCards(playGame.CPUCards, 'cpu');
+      cpuPlayCard();
+    }, 3000);
+  }
+
+  function cpuWin() {
+    let cardPlayer = document.querySelector('.card-flip-player');
+    if (cardPlayer.classList.contains('card-flip-player-fliped')) {
+      cardPlayer.classList.remove('card-flip-player-fliped');
+    }
+    setTimeout(() => {
+      cardPlayer.classList.add('remove-player-right');
+    }, 1000);
+    turnStats = 0;
+    setTimeout(() => {
+      setStyle();
+      updateScreen();
+      cardPlayer.remove();
+      createCards(playGame.PlayerCards, 'player');
+      setSkills('player');
+    }, 3000)
+  }
+
+  function loseScreen() {
+    const loseScript = document.createElement('script');
+    loseScript.setAttribute('src', './src/lose.js');
+
+    fetch('../pages/lose.html')
+      .then(resp => resp.text())
+      .then(html => app.innerHTML = html)
+
+    app.appendChild(loseScript);
+  }
+
+  function endGame() {
+    const result = playGame.gameEnded();
+    if (result === 'player lose') {
+      loseScreen();
+    } else if (result === 'cpu lose') {
+      input.style.display = 'block';
+      clearInterval(intervaleIdMilleseconds);
+      clearInterval(intervaleIdSeconds);
+    }
+  }
+
+  function playerPlayCards() {
     if (parseInt(playerScore.innerText) > 0) {
-      setSkillsCPU();
+      setSkills('cpu');
       const result = playGame.compareSkills();
 
+      endGame();
+
       if (result === 'playerWin') {
-        document.querySelector('.card-flip-cpu-fliped').classList.remove('card-flip-cpu-fliped');
-        cpuScore.innerText = playGame.skillsCPU.skill;
-        setTimeout(() => {
-          updateScreen();
-          document.querySelector('.card-flip-cpu').remove();
-          createCards(playGame.CPUCards, 'cpu');
-        }, 3000);
+        playerWin();
       } else if (result === 'cpuWin') {
+        cpuWin();
+      } else {
+        let cardCPU = document.querySelector('.card-flip-cpu');
+        let cardPlayer = document.querySelector('.card-flip-player');
+
+        cardCPU.classList.remove('card-flip-cpu-fliped');
+        setTimeout(() => {
+          cardCPU.classList.add('remove-cpu-right');
+          cardPlayer.classList.add('remove-player-left');
+        }, 1000);
+        turnStats = 1;
         setTimeout(() => {
           updateScreen();
-          document.querySelector('.card-flip-player').remove();
+          cardCPU.remove();
+          cardPlayer.remove();
+          createCards(playGame.CPUCards, 'cpu');
           createCards(playGame.PlayerCards, 'player');
-          setSkillsPlayer();
-        }, 1000)
-      } else {
+          setStyle();
+          cpuPlayCard();
+        }, 3000)
+      }
+    }
+  }
+
+  function cpuPlayCard() {
+    const cardCPUId = parseInt(document.querySelector('.card-cpu').id);
+    const cardPlayerId = parseInt(document.querySelector('.card-player').id);
+    let maxSkill = 0, nameSkill
+
+    playGame.CPUCards.forEach(card => {
+      if (card.id === cardCPUId) {
+        for (skillItem in card.skills) {
+          if (card.skills[skillItem] > maxSkill) {
+            maxSkill = card.skills[skillItem]
+            nameSkill = skillItem;
+          }
+        }
+      }
+    });
+    playGame.skillsPlayer.name = nameSkill;
+    playGame.skillsCPU.name = nameSkill;
+    playGame.skillsCPU.skill = maxSkill;
+
+    playGame.PlayerCards.forEach(card => {
+      if (card.id === cardPlayerId) {
+        playGame.skillsPlayer.skill = card.skills[nameSkill];
+      }
+    });
+
+    const result = playGame.compareSkills();
+    endGame();
+
+    if (result === 'playerWin') {
+      playerWin();
+    } else if (result === 'cpuWin') {
+      cpuWin();
+    } else {
+      let cardCPU = document.querySelector('.card-flip-cpu');
+      let cardPlayer = document.querySelector('.card-flip-player');
+
+      if (cardPlayer.classList.contains('card-flip-player-fliped')) {
+        cardPlayer.classList.remove('card-flip-player-fliped');
+      }
+      cardCPU.classList.remove('card-flip-cpu-fliped');
+
+      setTimeout(() => {
+        cardCPU.classList.add('remove-cpu-right');
+        cardPlayer.classList.add('remove-player-left');
+      }, 1000);
+
+      turnStats = 0;
+      setTimeout(() => {
         updateScreen();
-        document.querySelector('.card-flip-cpu').remove();
-        document.querySelector('.card-flip-player').remove();
+        cardCPU.remove();
+        cardPlayer.remove();
         createCards(playGame.CPUCards, 'cpu');
         createCards(playGame.PlayerCards, 'player');
-        setSkillsPlayer();
-      }
+        setStyle();
+      }, 3000)
     }
   }
 
   btnPlay.onclick = (e) => {
     e.preventDefault();
 
-    playCards();
+    playerPlayCards();
+  }
+
+  btnConfirm.onclick = function (e) {
+    e.preventDefault();
+
+    const inputValue = document.getElementsByTagName('input')[0];
+    const timeLeader = timer.innerText;
+
+    const playerLeaderBoard = {
+      name: inputValue.value,
+      time: timeLeader
+    }
+
+    leaders.push(playerLeaderBoard);
+
+    input.style.display = 'none';
+
+    const homeScript = document.createElement('script');
+    homeScript.setAttribute('src', './src/home.js');
+
+    fetch('../pages/home.html')
+      .then(resp => resp.text())
+      .then(html => app.innerHTML = html);
+
+    app.appendChild(homeScript);
   }
 
   function startGame() {
+    setStyle();
     updateScreen();
     createCards(playGame.PlayerCards, 'player');
     createCards(playGame.CPUCards, 'cpu');
-    setSkillsPlayer();
+    setSkills('player');
+    chrinometer();
   }
 
   startGame();
@@ -156,7 +331,6 @@ function game() {
   function getSound() {
     soundId = Math.floor(Math.random() * (5 - 1) + 1)
     sound = document.getElementById(`sound-0${soundId}`);
-    console.log(sound);
   }
 
   function playSound() {
@@ -168,18 +342,19 @@ function game() {
 
   sound.addEventListener('loadedmetadata', () => {
     getSound();
-    playSound();
+    setTimeout(playSound, 3000);
   });
 
   sound.addEventListener('timeupdate', () => {
-    if (sound.currentTime >= 0.98 * sound.duration) {
+    if (sound.currentTime >= 0.99 * sound.duration) {
       getSound();
       playSound();
     }
   });
-
-
-  // const input = document.getElementById("input");
 }
 
 game()
+
+// Falta
+// Bio cards
+// Tests

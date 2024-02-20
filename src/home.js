@@ -6,16 +6,6 @@ function home() {
   const charSelected1 = chars1[Math.floor(Math.random() * chars1.length)];
   const charSelected2 = chars2[Math.floor(Math.random() * chars2.length)];
 
-  setTimeout(() => {
-    const char1 = document.querySelector('.char-1');
-    char1.setAttribute('src', `../assets/images/${charSelected1}.png`)
-    char1.classList.add('loaded');
-
-    const char2 = document.querySelector('.char-2')
-    char2.setAttribute('src', `../assets/images/${charSelected2}.png`)
-    char2.classList.add('loaded');
-  }, 1000);
-
   const modal = document.getElementById("modal");
   const modalTitle = document.getElementById("modal-title");
   const modalContent = document.getElementById("modal-content");
@@ -24,6 +14,7 @@ function home() {
   const btnAbout = document.getElementById("about");
   const btnLeaderboards = document.getElementById("leaderboards");
   const btnClose = document.getElementById("close");
+  const btnPlayGame = document.getElementById("play-now");
 
   const textRules = `GOAL
     <br><br>
@@ -59,6 +50,16 @@ function home() {
   Ultimately, this academic project aims to go beyond the traditional boundaries of teaching, integrating theoretical knowledge with the engaging and exciting practice of electronic games. By combining the creativity of academics with the richness of the Valorant universe, the initiative aims not only to train competent professionals, but also to stimulate a new way of learning, where fun and education go hand in hand in an electrifying and academic challenge.
   <br><br>`
 
+  function createChars() {
+    const char1 = document.querySelector('.char-1');
+    char1.setAttribute('src', `../assets/images/${charSelected1}.png`)
+    char1.classList.add('loaded');
+
+    const char2 = document.querySelector('.char-2')
+    char2.setAttribute('src', `../assets/images/${charSelected2}.png`)
+    char2.classList.add('loaded');
+  }
+
   btnRules.onclick = function (e) {
     e.preventDefault();
     modal.style.display = "block";
@@ -78,7 +79,7 @@ function home() {
 
     const listLeaderboards = document.createElement('div');
 
-    data.forEach(element => {
+    leaders.forEach(element => {
       const divLeaderboards = document.createElement('div');
       divLeaderboards.setAttribute('id', 'leaderItem');
 
@@ -110,25 +111,6 @@ function home() {
     }
   }
 
-  const sound = document.getElementById('sound');
-
-  function playSound() {
-    sound.currentTime = 0;
-    sound.play();
-  }
-
-  sound.addEventListener('loadedmetadata', () => {
-    setTimeout(playSound, 1000);
-  });
-
-  sound.addEventListener('ended', () => {
-    setTimeout(playSound, 1000);
-  });
-
-
-  const btnPlayGame = document.getElementById("play-now");
-
-
   btnPlayGame.onclick = function (e) {
     e.preventDefault();
 
@@ -149,6 +131,23 @@ function home() {
     gameScript.setAttribute('src', './src/game.js');
     app.appendChild(gameScript);
   }
+
+  setTimeout(createChars, 1000);
+
+  const sound = document.getElementById('sound');
+
+  function playSound() {
+    sound.currentTime = 0;
+    sound.play();
+  }
+
+  sound.addEventListener('loadedmetadata', () => {
+    setTimeout(playSound, 1000);
+  });
+
+  sound.addEventListener('ended', () => {
+    setTimeout(playSound, 1000);
+  });
 }
 
 home();

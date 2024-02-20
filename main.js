@@ -14,6 +14,10 @@ function main() {
   gameStyle.setAttribute('rel', 'stylesheet');
   gameStyle.setAttribute('href', './styles/game.css');
 
+  const loseStyle = document.createElement('link');
+  loseStyle.setAttribute('rel', 'stylesheet');
+  loseStyle.setAttribute('href', './styles/lose.css');
+
   const loaderScript = document.createElement('script');
   loaderScript.setAttribute('src', './src/loader.js');
 
@@ -24,6 +28,7 @@ function main() {
   head.appendChild(loaderStyle);
   head.appendChild(homeStyle);
   head.appendChild(gameStyle);
+  head.appendChild(loseStyle);
 
   app.appendChild(loaderScript);
 }
