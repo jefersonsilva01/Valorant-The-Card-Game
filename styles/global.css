@@ -22,16 +22,6 @@
 }
 
 @font-face {
-  font-family: JetBrainsMonoNL-Bold;
-  src: url("../assets/fonts/JetBrainsMonoNL-Bold.ttf");
-}
-
-@font-face {
-  font-family: JetBrainsMonoNL-ExtraBold;
-  src: url("../assets/fonts/JetBrainsMonoNL-ExtraBold.ttf");
-}
-
-@font-face {
   font-family: Valorant;
   src: url("../assets/fonts/Valorant\ Font.ttf");
 }
@@ -47,5 +37,4 @@ body {
   margin: 0 auto;
   width: 100%;
   max-width: 1440px;
-  animation: content_reveal 0.6s ease;
 }

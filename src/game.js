@@ -1,19 +1,26 @@
 function game() {
   const gameArea = document.getElementById("game-area");
+  const timer = document.getElementById('timer');
+
   const input = document.getElementById("input");
   const btnConfirm = document.getElementById("confirm");
-  const timer = document.getElementById('timer');
+
   const modalCard = document.getElementById('modal-card');
   const modalCardTitle = document.getElementById('modal-card-title');
   const modalCardArea = document.getElementById('modal-card-area');
+
   const cardsPlayer = document.getElementById('cards-player');
   const playerScore = document.getElementById('score-player');
   const playerTurn = document.getElementById('player-turn');
+
   const cardsCPU = document.getElementById('cards-cpu');
   const cpuScore = document.getElementById('score-cpu');
   const cpuTurn = document.getElementById('cpu-turn');
+
   const btnPlay = document.getElementById('play');
+
   let turnStats = 0;
+
   let intervaleIdMilleseconds, intervaleIdSeconds;
 
   //Begin game logic
@@ -22,22 +29,18 @@ function game() {
   playGame.getCards();
 
   function chronometer() {
-    let seconds = 0;
-    let milleSeconds = 0;
+    let seconds = 0, milleSeconds = 0;
 
+    intervaleIdSeconds = setInterval(() => seconds++, 1000);
     intervaleIdMilleseconds = setInterval(() => {
       milleSeconds++;
+      let secondsText = seconds % 60 < 10 ? '0' + seconds % 60 : seconds % 60
       let minutesText = Math.floor(seconds / 60) < 10
         ? '0' + Math.floor(seconds / 60)
         : seconds % 60;
 
-      let secondsText = seconds % 60 < 10 ? '0' + seconds % 60 : seconds % 60
-      timer.innerText = minutesText + ':' + secondsText + '.' + '0' + milleSeconds % 10;
+      timer.innerText = `${minutesText}:${secondsText}.0${milleSeconds % 10}`;
     }, 100);
-
-    intervaleIdSeconds = setInterval(() => {
-      seconds++;
-    }, 1000);
   }
 
   function setStyle() {
@@ -58,11 +61,8 @@ function game() {
     const cardInner = document.createElement('div');
     cardInner.classList.add('card-inner');
 
-    if (player === 'player') {
-      cardContainer.onclick = () => {
-        cardContainer.classList.remove('card-flip-player-fliped');
-      }
-    }
+    if (player === 'player') cardContainer.onclick = () =>
+      cardContainer.classList.remove('card-flip-player-fliped');
 
     let cardFront, cardBack;
 
@@ -140,7 +140,10 @@ function game() {
   function playerWin() {
     let cardCPU = document.querySelector('.card-flip-cpu');
     cardCPU.classList.remove('card-flip-cpu-fliped');
+
     cpuScore.innerText = playGame.skillsCPU.skill;
+    playerScore.innerText = playGame.skillsPlayer.skill;
+
     setTimeout(() => {
       cardCPU.classList.add('remove-cpu-left');
     }, 1000);
@@ -157,9 +160,14 @@ function game() {
 
   function cpuWin() {
     let cardPlayer = document.querySelector('.card-flip-player');
+
     if (cardPlayer.classList.contains('card-flip-player-fliped')) {
       cardPlayer.classList.remove('card-flip-player-fliped');
     }
+
+    cpuScore.innerText = playGame.skillsCPU.skill;
+    playerScore.innerText = playGame.skillsPlayer.skill;
+
     setTimeout(() => {
       cardPlayer.classList.add('remove-player-right');
     }, 1000);
@@ -181,8 +189,7 @@ function game() {
     fetch('../pages/lose.html')
       .then(resp => resp.text())
       .then(html => app.innerHTML = html)
-
-    app.appendChild(loseScript);
+      .then(app.appendChild(loseScript));
   }
 
   function endGame() {
@@ -199,9 +206,8 @@ function game() {
   function playerPlayCards() {
     if (parseInt(playerScore.innerText) > 0) {
       setSkills('cpu');
-      const result = playGame.compareSkills();
 
-      endGame();
+      const result = playGame.compareSkills();
 
       if (result === 'playerWin') {
         playerWin();
@@ -212,11 +218,17 @@ function game() {
         let cardPlayer = document.querySelector('.card-flip-player');
 
         cardCPU.classList.remove('card-flip-cpu-fliped');
+
+        cpuScore.innerText = playGame.skillsCPU.skill;
+        playerScore.innerText = playGame.skillsPlayer.skill;
+
         setTimeout(() => {
           cardCPU.classList.add('remove-cpu-right');
           cardPlayer.classList.add('remove-player-left');
         }, 1000);
+
         turnStats = 1;
+
         setTimeout(() => {
           updateScreen();
           cardCPU.remove();
@@ -228,6 +240,8 @@ function game() {
           cpuPlayCard();
         }, 3000)
       }
+
+      endGame();
     }
   }
 
@@ -246,6 +260,7 @@ function game() {
         }
       }
     });
+
     playGame.skillsPlayer.name = nameSkill;
     playGame.skillsCPU.name = nameSkill;
     playGame.skillsCPU.skill = maxSkill;
@@ -257,7 +272,6 @@ function game() {
     });
 
     const result = playGame.compareSkills();
-    endGame();
 
     if (result === 'playerWin') {
       playerWin();
@@ -270,7 +284,11 @@ function game() {
       if (cardPlayer.classList.contains('card-flip-player-fliped')) {
         cardPlayer.classList.remove('card-flip-player-fliped');
       }
+
       cardCPU.classList.remove('card-flip-cpu-fliped');
+
+      cpuScore.innerText = playGame.skillsCPU.skill;
+      playerScore.innerText = playGame.skillsPlayer.skill;
 
       setTimeout(() => {
         cardCPU.classList.add('remove-cpu-right');
@@ -289,6 +307,41 @@ function game() {
         setStyle();
       }, 3000)
     }
+    endGame();
+  }
+
+  function modalCards() {
+    const infoCardPlayer = document.querySelector('.info-player');
+    const infoCardCPU = document.querySelector('.info-cpu');
+
+    const cardPlayerId = parseInt(document.querySelector('.card-player').id);
+    const cardCPUId = parseInt(document.querySelector('.card-cpu').id);
+
+    const divText = document.createElement('div')
+    divText.setAttribute('id', 'modal-card-content');
+
+    function createModalCard(cardId) {
+      characters.forEach(card => {
+        if (card.id === cardId) {
+          divText.innerText = card.bio
+          modalCardArea.appendChild(divText);
+          modalCardTitle.innerText = card.name;
+          modalCard.style.display = 'block';
+        }
+      })
+    }
+
+    function hiddenModalCard() {
+      modalCard.style.display = 'none';
+      modalCardArea.removeChild(modalCardArea.lastElementChild);
+    }
+
+    infoCardPlayer.onmouseover = () => createModalCard(cardPlayerId);
+    infoCardCPU.onmouseover = () => createModalCard(cardCPUId);
+
+    infoCardPlayer.onmouseleave = () => hiddenModalCard()
+    infoCardCPU.onmouseleave = () => hiddenModalCard()
+
   }
 
   btnPlay.onclick = (e) => {
@@ -308,72 +361,30 @@ function game() {
       time: timeLeader
     }
 
-    leaders.push(playerLeaderBoard);
+    if (inputValue.value.length >= 3) {
+      leaders.push(playerLeaderBoard);
 
-    input.style.display = 'none';
+      input.style.display = 'none';
 
-    const homeScript = document.createElement('script');
-    homeScript.setAttribute('src', './src/home.js');
+      const homeScript = document.createElement('script');
+      homeScript.setAttribute('src', './src/home.js');
 
-    fetch('../pages/home.html')
-      .then(resp => resp.text())
-      .then(html => app.innerHTML = html);
-
-    app.appendChild(homeScript);
-  }
-
-  function modalCards() {
-    const infoCardPlayer = document.querySelector('.info-player');
-    const infoCardCPU = document.querySelector('.info-cpu');
-
-    const cardPlayerId = parseInt(document.querySelector('.card-player').id);
-    const cardCPUId = parseInt(document.querySelector('.card-cpu').id);
-
-    const divText = document.createElement('div')
-    divText.setAttribute('id', 'modal-card-content');
-
-    infoCardPlayer.onmouseover = () => {
-      characters.forEach(card => {
-        if (card.id === cardPlayerId) {
-          divText.innerText = card.bio
-          modalCardArea.appendChild(divText);
-          modalCardTitle.innerText = card.name;
-          modalCard.style.display = 'block';
-        }
-      })
-    };
-
-    infoCardCPU.onmouseover = () => {
-      characters.forEach(card => {
-        if (card.id === cardCPUId) {
-          divText.innerText = card.bio;
-          modalCardArea.appendChild(divText);
-          modalCardTitle.innerText = card.name;
-          modalCard.style.display = 'block';
-        }
-      })
-    };
-
-    infoCardPlayer.onmouseleave = () => {
-      modalCard.style.display = 'none';
-      modalCardArea.removeChild(modalCardArea.lastElementChild);
-    }
-
-    infoCardCPU.onmouseleave = () => {
-      modalCard.style.display = 'none';
-      modalCardArea.removeChild(modalCardArea.lastElementChild);
+      fetch('../pages/home.html')
+        .then(resp => resp.text())
+        .then(html => app.innerHTML = html)
+        .then(app.appendChild(homeScript));
     }
 
   }
 
   function startGame() {
-    setStyle();
-    updateScreen();
     createCards(playGame.PlayerCards, 'player');
     createCards(playGame.CPUCards, 'cpu');
-    setSkills('player');
     chronometer();
+    setStyle();
+    updateScreen();
     modalCards();
+    setSkills('player');
   }
 
   startGame();
@@ -399,7 +410,7 @@ function game() {
   });
 
   sound.addEventListener('timeupdate', () => {
-    if (sound.currentTime >= 0.99 * sound.duration) {
+    if (sound.currentTime >= 0.97 * sound.duration) {
       getSound();
       playSound();
     }

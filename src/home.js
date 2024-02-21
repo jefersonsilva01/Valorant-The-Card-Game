@@ -1,7 +1,7 @@
 function home() {
 
-  const chars1 = ['BG jett', 'BG raze', 'BG yoru', 'BG omen',];
-  const chars2 = ['BG brimstone', 'BG killjoy', 'BG phoenix', 'BG viper',];
+  const chars1 = ['BG jett', 'BG raze', 'BG yoru', 'BG omen'];
+  const chars2 = ['BG brimstone', 'BG killjoy', 'BG phoenix', 'BG viper'];
 
   const charSelected1 = chars1[Math.floor(Math.random() * chars1.length)];
   const charSelected2 = chars2[Math.floor(Math.random() * chars2.length)];
@@ -114,22 +114,13 @@ function home() {
   btnPlayGame.onclick = function (e) {
     e.preventDefault();
 
+    const gameScript = document.createElement('script');
+    gameScript.setAttribute('src', './src/game.js');
+
     fetch('../pages/game.html')
       .then(resp => resp.text())
       .then(html => app.innerHTML = html)
-
-    const charactersData = document.createElement('script');
-    charactersData.setAttribute('src', './src/data/characters.js');
-
-    const CardGame = document.createElement('script');
-    CardGame.setAttribute('src', './src/CardGame.js');
-
-    app.appendChild(charactersData);
-    app.appendChild(CardGame);
-
-    const gameScript = document.createElement('script');
-    gameScript.setAttribute('src', './src/game.js');
-    app.appendChild(gameScript);
+      .then(app.appendChild(gameScript));
   }
 
   setTimeout(createChars, 1000);

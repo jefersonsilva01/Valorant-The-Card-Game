@@ -17,13 +17,11 @@ class CardGame {
   }
 
   getCards(array = this.cardsShuffle) {
-    array.forEach(card => {
-      if (array.indexOf(card) % 2 === 0) {
-        this.PlayerCards.push(card);
-      } else {
-        this.CPUCards.push(card);
-      }
-    })
+    array.forEach(card =>
+      array.indexOf(card) % 2 === 0
+        ? this.PlayerCards.push(card)
+        : this.CPUCards.push(card)
+    );
   }
 
   discard(arrayWin, arrayLose) {
@@ -40,7 +38,6 @@ class CardGame {
     } else {
       this.PlayerCards.push(this.PlayerCards.shift())
       this.CPUCards.push(this.CPUCards.shift())
-      return;
     }
   }
 

@@ -15,18 +15,13 @@ function loader() {
     } else {
       clearInterval(idInterval);
 
-      const dataLeaderboards = document.createElement('script');
-      dataLeaderboards.setAttribute('src', '../src/data/leaderboards.js');
-
       const homeScript = document.createElement('script');
       homeScript.setAttribute('src', './src/home.js');
 
       fetch('./pages/home.html')
         .then(resp => resp.text())
         .then(html => app.innerHTML = html)
-
-      app.appendChild(dataLeaderboards);
-      app.appendChild(homeScript);
+        .then(app.appendChild(homeScript));
     }
   }
 }

@@ -5,13 +5,13 @@ function lose() {
   btnPlayAgain.onclick = function (e) {
     e.preventDefault();
 
-    fetch('../pages/game.html')
-      .then(resp => resp.text())
-      .then(html => app.innerHTML = html);
-
     const gameScript = document.createElement('script');
     gameScript.setAttribute('src', './src/game.js');
-    app.appendChild(gameScript);
+
+    fetch('../pages/game.html')
+      .then(resp => resp.text())
+      .then(html => app.innerHTML = html)
+      .then(app.appendChild(gameScript));
   }
 
   btnQuit.onclick = function (e) {
@@ -22,11 +22,9 @@ function lose() {
 
     fetch('../pages/home.html')
       .then(resp => resp.text())
-      .then(html => app.innerHTML = html);
-
-    app.appendChild(homeScript);
+      .then(html => app.innerHTML = html)
+      .then(app.appendChild(homeScript));
   }
-
 }
 
 lose();

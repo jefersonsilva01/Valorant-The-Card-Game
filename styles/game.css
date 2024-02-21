@@ -187,6 +187,7 @@
 
 .card-flip-player {
   left: 0px;
+  cursor: pointer;
 }
 
 .card-flip-cpu {
@@ -282,25 +283,25 @@
 
 .remove-player-left {
   rotate: -30deg;
-  left: -600px;
+  left: -1400px;
   transition: rotate 1s ease, left 1s ease-out;
 }
 
 .remove-player-right {
   rotate: 30deg;
-  left: 1200px;
+  left: 1400px;
   transition: rotate 1s ease, left 1s ease-out;
 }
 
 .remove-cpu-left {
   rotate: -30deg;
-  right: 1200px;
+  right: 1400px;
   transition: rotate 1s ease, right 1s ease-out;
 }
 
 .remove-cpu-right {
   rotate: 30deg;
-  right: -800px;
+  right: -1400px;
   transition: rotate 1s ease, right 1s ease-out;
 }
 
