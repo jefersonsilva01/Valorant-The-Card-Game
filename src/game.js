@@ -139,21 +139,24 @@ function game() {
 
   function playerWin() {
     let cardCPU = document.querySelector('.card-flip-cpu');
-    cardCPU.classList.remove('card-flip-cpu-fliped');
+
+    if (cardCPU.classList.contains('card-flip-cpu-fliped')) {
+      cardCPU.classList.remove('card-flip-cpu-fliped');
+    }
 
     cpuScore.innerText = playGame.skillsCPU.skill;
     playerScore.innerText = playGame.skillsPlayer.skill;
 
     setTimeout(() => {
       cardCPU.classList.add('remove-cpu-left');
-    }, 1000);
+      createCards(playGame.CPUCards, 'cpu');
+    }, 2000);
     turnStats = 1;
     setTimeout(() => {
+      cardCPU.remove();
+      modalCards();
       setStyle();
       updateScreen();
-      cardCPU.remove();
-      createCards(playGame.CPUCards, 'cpu');
-      modalCards();
       cpuPlayCard();
     }, 3000);
   }
@@ -170,13 +173,13 @@ function game() {
 
     setTimeout(() => {
       cardPlayer.classList.add('remove-player-right');
-    }, 1000);
+      createCards(playGame.PlayerCards, 'player');
+    }, 2000);
     turnStats = 0;
     setTimeout(() => {
       setStyle();
       updateScreen();
       cardPlayer.remove();
-      createCards(playGame.PlayerCards, 'player');
       modalCards();
       setSkills('player');
     }, 3000)
@@ -225,7 +228,9 @@ function game() {
         setTimeout(() => {
           cardCPU.classList.add('remove-cpu-right');
           cardPlayer.classList.add('remove-player-left');
-        }, 1000);
+          createCards(playGame.CPUCards, 'cpu');
+          createCards(playGame.PlayerCards, 'player');
+        }, 2000);
 
         turnStats = 1;
 
@@ -233,8 +238,6 @@ function game() {
           updateScreen();
           cardCPU.remove();
           cardPlayer.remove();
-          createCards(playGame.CPUCards, 'cpu');
-          createCards(playGame.PlayerCards, 'player');
           modalCards();
           setStyle();
           cpuPlayCard();
@@ -293,15 +296,15 @@ function game() {
       setTimeout(() => {
         cardCPU.classList.add('remove-cpu-right');
         cardPlayer.classList.add('remove-player-left');
-      }, 1000);
+        createCards(playGame.CPUCards, 'cpu');
+        createCards(playGame.PlayerCards, 'player');
+      }, 2000);
 
       turnStats = 0;
       setTimeout(() => {
         updateScreen();
         cardCPU.remove();
         cardPlayer.remove();
-        createCards(playGame.CPUCards, 'cpu');
-        createCards(playGame.PlayerCards, 'player');
         setSkills('player');
         modalCards();
         setStyle();
@@ -362,7 +365,7 @@ function game() {
     }
 
     if (inputValue.value.length >= 3) {
-      leaders.push(playerLeaderBoard);
+      leaders.unshift(playerLeaderBoard);
 
       input.style.display = 'none';
 
