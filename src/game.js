@@ -1,4 +1,10 @@
 function game() {
+  const loseScript = document.createElement('script');
+  loseScript.setAttribute('src', './src/lose.js');
+
+  const homeScript = document.createElement('script');
+  homeScript.setAttribute('src', './src/home.js');
+
   const gameArea = document.getElementById("game-area");
   const timer = document.getElementById('timer');
 
@@ -68,7 +74,7 @@ function game() {
 
     cardFront = `
       <div id="${card.id}" class="card-${player}" style="background-image: url(${card.cover});">      
-        <img class="info-${player}" src="../assets/images/info.svg">
+        <img class="info-${player}" src="./assets/images/info.svg">
         <div class="card-info">
           <span class="name">${card.name}</span>
           <img class="class" src='${card.class}'>
@@ -98,7 +104,7 @@ function game() {
       <div 
         class="card-back" 
         style="
-          background-image: url('../assets/images/card unflip.png');
+          background-image: url('./assets/images/card unflip.png');
           background-size: cover;
           background-position: center;
         ">
@@ -186,10 +192,7 @@ function game() {
   }
 
   function loseScreen() {
-    const loseScript = document.createElement('script');
-    loseScript.setAttribute('src', './src/lose.js');
-
-    fetch('../pages/lose.html')
+    fetch('./pages/lose.html')
       .then(resp => resp.text())
       .then(html => app.innerHTML = html)
       .then(app.appendChild(loseScript));
@@ -343,7 +346,6 @@ function game() {
 
     infoCardPlayer.onmouseleave = () => hiddenModalCard()
     infoCardCPU.onmouseleave = () => hiddenModalCard()
-
   }
 
   btnPlay.onclick = (e) => {
@@ -368,15 +370,11 @@ function game() {
 
       input.style.display = 'none';
 
-      const homeScript = document.createElement('script');
-      homeScript.setAttribute('src', './src/home.js');
-
-      fetch('../pages/home.html')
+      fetch('./pages/home.html')
         .then(resp => resp.text())
         .then(html => app.innerHTML = html)
         .then(app.appendChild(homeScript));
     }
-
   }
 
   function startGame() {

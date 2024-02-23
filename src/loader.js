@@ -1,4 +1,8 @@
 function loader() {
+
+  const homeScript = document.createElement('script');
+  homeScript.setAttribute('src', './src/home.js');
+
   let loader = document.getElementById('loader');
   let percent = document.getElementById('percent');
   percent.innerText = '0%'
@@ -14,9 +18,6 @@ function loader() {
       width += 1;
     } else {
       clearInterval(idInterval);
-
-      const homeScript = document.createElement('script');
-      homeScript.setAttribute('src', './src/home.js');
 
       fetch('./pages/home.html')
         .then(resp => resp.text())

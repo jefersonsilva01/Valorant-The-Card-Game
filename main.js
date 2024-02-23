@@ -22,7 +22,7 @@ function main() {
   loaderScript.setAttribute('src', './src/loader.js');
 
   const dataLeaderboards = document.createElement('script');
-  dataLeaderboards.setAttribute('src', '../src/data/leaderboards.js');
+  dataLeaderboards.setAttribute('src', './src/data/leaderboards.js');
 
   const charactersData = document.createElement('script');
   charactersData.setAttribute('src', './src/data/characters.js');
