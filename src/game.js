@@ -243,7 +243,6 @@ function game() {
           cpuPlayCard();
         }, 3000)
       }
-
       endGame();
     }
   }
