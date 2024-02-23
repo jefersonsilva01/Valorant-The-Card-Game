@@ -348,7 +348,7 @@ function game() {
     infoCardCPU.onmouseleave = () => hiddenModalCard()
   }
 
-  btnPlay.onclick = (e) => {
+  btnPlay.onclick = function (e) {
     e.preventDefault();
 
     playerPlayCards();
