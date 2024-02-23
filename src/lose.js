@@ -11,7 +11,7 @@ function lose() {
   btnPlayAgain.onclick = function (e) {
     e.preventDefault();
 
-    fetch('../pages/game.html')
+    fetch('./pages/game.html')
       .then(resp => resp.text())
       .then(html => app.innerHTML = html)
       .then(app.appendChild(gameScript));
@@ -20,7 +20,7 @@ function lose() {
   btnQuit.onclick = function (e) {
     e.preventDefault();
 
-    fetch('../pages/home.html')
+    fetch('./pages/home.html')
       .then(resp => resp.text())
       .then(html => app.innerHTML = html)
       .then(app.appendChild(homeScript));
