@@ -402,7 +402,6 @@ function game() {
     sound.play();
   }
 
-
   sound.addEventListener('loadedmetadata', () => {
     getSound();
     setTimeout(playSound, 3000);

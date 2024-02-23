@@ -133,11 +133,7 @@ function home() {
   }
 
   sound.addEventListener('loadedmetadata', () => {
-    setTimeout(playSound, 1000);
-  });
-
-  sound.addEventListener('ended', () => {
-    setTimeout(playSound, 1000);
+    setTimeout(playSound, 3000);
   });
 }
 
