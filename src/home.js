@@ -117,7 +117,7 @@ function home() {
   btnPlayGame.onclick = function (e) {
     e.preventDefault();
 
-    fetch('../pages/game.html')
+    fetch('./pages/game.html')
       .then(resp => resp.text())
       .then(html => app.innerHTML = html)
       .then(app.appendChild(gameScript));
