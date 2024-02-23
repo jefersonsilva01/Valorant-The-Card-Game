@@ -390,7 +390,7 @@ function game() {
   startGame();
   //End game logic
 
-  let soundId, sound;
+  let sound = document.getElementById('sound-01'), soundId;
 
   function getSound() {
     soundId = Math.floor(Math.random() * (5 - 1) + 1)
@@ -402,7 +402,6 @@ function game() {
     sound.play();
   }
 
-  sound = document.getElementById('sound-01');
 
   sound.addEventListener('loadedmetadata', () => {
     getSound();
