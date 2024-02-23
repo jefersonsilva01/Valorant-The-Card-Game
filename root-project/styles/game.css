@@ -1,70 +1,3 @@
-#game,
-#game-area {
-  position: relative;
-}
-#game-area h3,
-#game-area span {
-  font-size: 32px;
-  border: 1px solid var(--main-red);
-  color: var(--main-red);
-}
-#game-area a,
-#timer {
-  margin-top: 64px;
-  text-align: center;
-}
-#game-area,
-#timer {
-  font-family: Valorant;
-}
-#game-area a:hover,
-#game-area h3,
-#game-area span,
-#input a:hover,
-#input input,
-#timer {
-  color: var(--main-red);
-}
-#game-area a,
-#game-area h3,
-#game-area span,
-#timer {
-  text-align: center;
-}
-.card-info .name,
-.skill-cpu span,
-.skill-player span {
-  font-family: Valorant !important;
-  color: var(--white) !important;
-  border: none !important;
-}
-#input,
-#modal-card {
-  display: none;
-  z-index: 1;
-  backdrop-filter: blur(5px);
-  box-shadow: 10px 10px var(--main-black);
-}
-#input,
-#modal-card,
-.turn {
-  box-shadow: 10px 10px var(--main-black);
-}
-#input-area,
-#modal-card-area {
-  border: 3px solid var(--main-red);
-}
-#modal-card,
-#modal-card-area {
-  height: fit-content;
-  padding: 16px;
-}
-#input-header,
-#modal-card-header {
-  background-color: var(--main-red);
-  height: 48px;
-  display: flex;
-}
 #game {
   background-image: url("../assets/images/BG.png");
   background-position: center;
@@ -72,36 +5,53 @@
   background-size: cover;
   height: 100vh;
   width: 100%;
+  position: relative;
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
 #timer {
+  color: var(--main-red);
+  font-family: Valorant;
   font-size: 32px;
   border-top: 3px solid var(--main-red);
   border-bottom: 3px solid var(--main-red);
   padding: 8px 0;
   float: right;
   width: 150px;
+  text-align: center;
   margin-right: 260px;
+  margin-top: 64px;
 }
+
 #game-area {
   display: flex;
+  font-family: Valorant;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   top: 200px;
   left: 200px;
 }
+
 #game-area h3 {
+  font-size: 32px;
+  color: var(--main-red);
+  text-align: center;
+  border: 1px solid var(--main-red);
   width: 284px;
   height: 64px;
   padding-top: 16px;
   margin-bottom: 24px;
 }
+
 .turn {
   background-color: var(--main-red);
   color: var(--white) !important;
   border: 3.2px solid var(--white) !important;
+  box-shadow: 10px 10px var(--main-black);
 }
+
 .card-area {
   width: 285px;
   height: 480px;
@@ -109,72 +59,94 @@
   border: 4px solid var(--main-red);
   margin-bottom: 24px;
 }
+
 #game-area span {
+  font-size: 32px;
+  color: var(--main-red);
+  text-align: center;
+  border: 1px solid var(--main-red);
   padding: 8px 24px;
 }
-.info-cards,
-.skill-cpu,
-.skill-player {
+
+.info-cards {
   display: flex;
   justify-content: space-between;
 }
+
 #game-area h1 {
   font-size: 48px;
   color: var(--white);
   display: inline-block;
 }
+
 #game-area img {
   width: 44px;
   height: 44px;
-  margin: 0 16px;
+  margin: 0px 16px;
 }
+
 #game-area a {
   display: block;
   text-decoration: none;
   color: var(--white);
   font-size: 32px;
+  text-align: center;
+  margin-top: 64px;
 }
+
+#game-area a:hover {
+  color: var(--main-red);
+}
+
 #input {
+  display: none;
   background-color: var(--white);
+  backdrop-filter: blur(5px);
   width: 763px;
   height: 247px;
   padding: 16px;
   position: absolute;
+  z-index: 1;
   top: 25%;
   left: 20%;
+  box-shadow: 10px 10px var(--main-black);
 }
+
 #input-area {
+  border: 3px solid var(--main-red);
   height: 215px;
   padding: 16px;
   display: flex;
   flex-direction: column;
 }
+
 #input-header {
+  background-color: var(--main-red);
   width: 699px;
+  height: 48px;
   padding: 16px 0;
+  display: flex;
   align-items: center;
   justify-content: space-between;
 }
-#input-header h3,
-#modal-card-header h3 {
+
+#input-header h3 {
   font-family: Valorant;
   font-size: 24px;
   margin-left: 16px;
 }
-#input a,
-#input input,
-#modal-card-content {
-  font-family: JetBrainsMono-Bold;
-}
+
 #input-header span {
   background-color: unset;
   margin-right: 16px;
   cursor: pointer;
 }
+
 #input-header img {
   width: 16px;
   height: 16px;
 }
+
 #input input {
   align-self: center;
   width: 642px;
@@ -183,32 +155,45 @@
   border: 1.2px solid var(--main-red);
   margin-top: 24px;
   font-size: 24px;
+  font-family: JetBrainsMono-Bold;
   padding-left: 16px;
+  color: var(--main-red);
 }
+
 #input a {
   color: var(--main-black);
   font-size: 24px;
+  font-family: JetBrainsMono-Bold;
   text-decoration: none;
   margin-top: 16px;
   text-align: end;
   display: inline-block;
   margin-right: 32px;
 }
-.card-flip-cpu,
-.card-flip-player {
+
+#input a:hover {
+  color: var(--main-red);
+}
+
+/* Begin card style */
+.card-flip-player,
+.card-flip-cpu {
   border: 3.2px solid var(--white) !important;
   width: 285px;
   height: 480px;
   position: absolute;
   top: 88px;
 }
+
 .card-flip-player {
-  left: 0;
+  left: 0px;
   cursor: pointer;
 }
+
 .card-flip-cpu {
-  right: 0;
+  right: 0px;
 }
+
 .card-inner {
   position: relative;
   width: 100%;
@@ -216,14 +201,14 @@
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
-.card-back,
-.card-flip-cpu-fliped .card-inner,
-.card-flip-player-fliped .card-inner {
+.card-flip-player-fliped .card-inner,
+.card-flip-cpu-fliped .card-inner {
   transform: rotateY(180deg);
 }
-.card-back,
+
+.card-player,
 .card-cpu,
-.card-player {
+.card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -232,12 +217,17 @@
   -moz-backface-visibility: hidden;
   transform-style: preserve-3d;
 }
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
 .card-info {
-  background: #1b1d20;
+  background: rgb(27, 29, 32);
   background: linear-gradient(
     0deg,
-    #1b1d20 0,
-    #2d2d30 15%,
+    rgba(27, 29, 32, 1) 0%,
+    rgba(45, 45, 48, 1) 15%,
     rgba(32, 56, 61, 0) 100%
   );
   position: absolute;
@@ -246,76 +236,118 @@
   width: 100%;
   bottom: 0;
 }
-.class,
-.info-cpu,
-.info-player {
-  height: 24px !important;
-  width: 24px !important;
-}
+
 .card-info .name {
   font-size: 24px !important;
+  font-family: Valorant !important;
+  color: var(--white) !important;
   display: inline-block;
+  border: none !important;
 }
+
 .class {
+  width: 24px !important;
+  height: 24px !important;
   float: right !important;
   margin-top: 8px !important;
 }
-.skill-cpu span,
-.skill-player span {
-  font-size: 20px !important;
-  text-align: center;
+
+.skill-player,
+.skill-cpu {
+  display: flex;
+  justify-content: space-between;
 }
+
+.skill-player span,
+.skill-cpu span {
+  font-size: 20px !important;
+  font-family: Valorant !important;
+  color: var(--white) !important;
+  text-align: center;
+  border: none !important;
+}
+
 .skill-player span:hover {
   color: var(--main-red) !important;
   cursor: pointer;
 }
-.info-cpu,
-.info-player {
+
+.info-player,
+.info-cpu {
+  height: 24px !important;
+  width: 24px !important;
   float: right;
   margin-top: 16px !important;
   cursor: pointer;
 }
+
 .remove-player-left {
   rotate: -30deg;
   left: -1400px;
-  transition: rotate 1s, left 1s ease-out;
+  transition: rotate 1s ease, left 1s ease-out;
 }
+
 .remove-player-right {
   rotate: 30deg;
   left: 1400px;
-  transition: rotate 1s, left 1s ease-out;
+  transition: rotate 1s ease, left 1s ease-out;
 }
-.remove-cpu-left,
-.remove-cpu-right {
-  transition: rotate 1s, right 1s ease-out;
-}
+
 .remove-cpu-left {
   rotate: -30deg;
   right: 1400px;
+  transition: rotate 1s ease, right 1s ease-out;
 }
+
 .remove-cpu-right {
   rotate: 30deg;
   right: -1400px;
+  transition: rotate 1s ease, right 1s ease-out;
 }
+
 #modal-card {
+  display: none;
   width: 364px;
+  height: fit-content;
+  padding: 16px;
   position: absolute;
+  z-index: 1;
   top: 30%;
   left: 37%;
   background-color: var(--main-black-blur);
+  backdrop-filter: blur(5px);
+  box-shadow: 10px 10px var(--main-black);
 }
+
 #modal-card-area {
+  border: 3px solid var(--main-red);
+  height: fit-content;
+  padding: 16px;
   display: flex;
   flex-direction: column;
 }
+
 #modal-card-header {
+  background-color: var(--main-red);
   width: 300px;
+  height: 48px;
+  display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
+#modal-card-header h3 {
+  font-family: Valorant;
+  font-size: 24px;
+  margin-left: 16px;
+}
+
 #modal-card-content {
   color: var(--white);
+  font-family: JetBrainsMono-Bold;
   width: 100%;
   height: 100%;
   padding-top: 16px;
 }
+
+/* End card style */

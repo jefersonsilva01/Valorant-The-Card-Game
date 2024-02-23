@@ -1,163 +1,157 @@
-#bg,
-#home {
-  height: 100vh;
-}
-#menu a,
-#play-now {
-  text-decoration: none;
-  font-family: JetBrainsMono-Bold;
-}
-#menu a:hover > span,
-#play-now:hover {
-  text-shadow: 2px 2px var(--main-black);
-}
-#characters,
-#home {
-  position: relative;
-}
-#bg,
-.char-1,
-.char-2 {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-}
-#bg,
-#modal,
-.char-1,
-.char-2 {
-  position: absolute;
-}
-#leaderItem,
-#menu a,
-#play-now:hover {
-  color: var(--main-red);
-}
-#leaderItem span,
-#menu a {
-  text-transform: uppercase;
-}
-#leaderItem:hover,
-#modal-header {
-  background-color: var(--main-red);
-}
 #bg {
   background-image: url("../assets/images/BG\ valorant.gif");
   filter: blur(3px);
   -webkit-filter: blur(3px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
   width: 100vw;
   max-width: 1440px;
+  position: absolute;
 }
+
 #home {
   background-color: unset;
+  height: 100vh;
   width: 100%;
+  position: relative;
   overflow-y: hidden;
 }
+
 #menu {
   padding-top: 20px;
   height: 60px;
 }
+
 #menu ul {
   display: flex;
   list-style: none;
   justify-content: end;
   margin-right: 141px;
 }
-#menu a,
-#modal-header {
-  align-items: center;
-  display: flex;
-}
+
 #menu li {
   margin-right: 24px;
 }
+
 #menu a {
+  display: flex;
+  align-items: center;
+  font-family: JetBrainsMono-Bold;
   font-size: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--main-red);
 }
+
 #menu span {
-  width: 0;
+  width: 0px;
   overflow: hidden;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
+
 #menu a:hover > span {
   width: auto;
   opacity: 1;
+  text-shadow: 2px 2px var(--main-black);
 }
+
 #menu img {
   margin-right: 8px;
   height: 32px;
   width: 32px;
 }
+
 #titles {
   margin-top: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 #titles h1 {
   height: fit-content;
   margin-right: 18px;
   padding-top: 28px;
   font-family: Valorant;
-  font-weight: 400;
+  font-weight: normal;
   color: var(--white);
   font-size: 166px;
 }
-#play-now,
-#titles h2 {
-  font-size: 36px;
-  z-index: 1;
-  color: var(--white);
-}
+
 #titles h2 {
   font-family: JetBrainsMono-ExtraBold;
-  font-weight: 400;
+  font-size: 36px;
+  font-weight: normal;
+  color: var(--white);
+  z-index: 1;
   width: 100px;
 }
+
 #play-now {
+  text-decoration: none;
   margin-top: 130px;
   position: fixed;
   left: 45%;
   padding: 16px 32px;
   display: inline-block;
+  z-index: 1;
+  font-family: JetBrainsMono-Bold;
+  font-size: 36px;
   text-align: center;
+  color: var(--white);
 }
+
 #play-now:hover {
-  transition: 0.2s ease-in;
+  transition: ease-in 0.2s;
+  color: var(--main-red);
+  text-shadow: 2px 2px var(--main-black);
 }
+
 #characters {
   height: 670px;
   overflow: hidden;
+  position: relative;
   top: -160px;
 }
+
 .char-1,
 .char-2 {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
   height: 1000px;
   width: 1300px;
   opacity: 0;
-  transition: opacity 2s, transform 2s;
+  transition: opacity 2s ease, transform 2s ease;
 }
+
 .char-1.loaded,
 .char-2.loaded {
   opacity: 1;
   height: 966px;
   width: 1280px;
 }
+
 .char-1 {
   left: 250px;
   margin-left: 28px;
 }
+
 .char-2 {
   right: 250px;
   margin-right: 28px;
 }
+
 #modal {
   display: none;
   width: 763px;
   height: 504px;
   padding: 16px;
+  position: absolute;
   z-index: 1;
   top: 20%;
   left: 20%;
@@ -165,6 +159,7 @@
   backdrop-filter: blur(5px);
   box-shadow: 10px 10px var(--main-black);
 }
+
 #modal-area {
   border: 3px solid var(--main-red);
   height: 472px;
@@ -172,25 +167,33 @@
   display: flex;
   flex-direction: column;
 }
+
 #modal-header {
+  background-color: var(--main-red);
   width: 699px;
   height: 48px;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
 }
+
 #modal-header h3 {
   font-family: Valorant;
   font-size: 24px;
   margin-left: 16px;
 }
+
 #modal-header span {
   background-color: unset;
   margin-right: 16px;
   cursor: pointer;
 }
+
 #modal-header img {
   width: 16px;
   height: 16px;
 }
+
 #modal-content {
   border: 2px solid var(--main-red);
   width: 699px;
@@ -201,6 +204,7 @@
   font-family: JetBrainsMono-Bold;
   padding: 16px;
 }
+
 #leaderItem {
   margin: 16px 8px;
   width: 642px;
@@ -209,13 +213,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: var(--main-red);
 }
+
 #leaderItem span {
   font-size: 16px;
   font-family: JetBrainsMono-Bold;
+  text-transform: uppercase;
   padding: 0 16px;
 }
+
 #leaderItem:hover {
   border: 3.2px solid var(--white);
+  background-color: var(--main-red);
   color: var(--main-black);
 }
