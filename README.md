@@ -8,7 +8,7 @@
 - [Layout](#layout)
 - [Technologies used](#technologies-used)
 - [Running the project](#running-the-project)
-- [Licença](#licença)
+- [License](#license)
 
 # About the project
 
@@ -38,6 +38,6 @@ cd Valorant\ The\ Card\ Game/
 code .
 ```
 
-# Licença
+# License
 
 This project is under the MIT license. See the file [LICENSE](https://github.com/jefersonsilva01/Valorant-The-Card-Game/blob/main/LICENSE) for more details.
