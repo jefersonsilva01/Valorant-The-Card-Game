@@ -12,6 +12,8 @@
 
 # About the project
 
+You can also read a version of this readme in Portuguese [here](https://github.com/jefersonsilva01/Valorant-The-Card-Game/blob/main/README-pt_BR.md).
+
 The project aims to create a game based on the classic super trump card game, where players use illustrated thematic cards and compare their attributes to find out who would win in each criterion, here in this case the theme used is that of the popular online game Valorant , where the cards are based on their respective characters.
 
 You can see the game demo by clicking [here](https://jefersonsilva01.github.io/Valorant-The-Card-Game/).
