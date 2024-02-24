@@ -125,16 +125,16 @@ function home() {
 
   setTimeout(createChars, 1000);
 
-  // const sound = document.getElementById('sound');
+  const sound = document.getElementById('sound');
 
-  // function playSound() {
-  //   sound.currentTime = 0;
-  //   sound.play();
-  // }
+  function playSound() {
+    sound.currentTime = 0;
+    sound.play();
+  }
 
-  // sound.addEventListener('loadedmetadata', () => {
-  //   setTimeout(playSound, 3000);
-  // });
+  sound.addEventListener('loadedmetadata', () => {
+    setTimeout(playSound, 3000);
+  });
 }
 
 home();
