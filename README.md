@@ -2,7 +2,7 @@
 
 <h1>VALORANT THE CARD GAME</h1>
 
-<h1>Índice</h1>
+<h1>Table of content</h1>
 
 - [About the project](#about-the-project)
 - [Layout](#layout)
