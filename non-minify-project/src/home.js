@@ -10,8 +10,8 @@ function home() {
   const gameScript = document.createElement('script');
   gameScript.setAttribute('src', './src/game.js');
 
-  const chars1 = ['BG jett', 'BG raze', 'BG yoru', 'BG omen'];
-  const chars2 = ['BG brimstone', 'BG killjoy', 'BG phoenix', 'BG viper'];
+  const chars1 = ['BG jett', 'BG raze', 'BG killjoy', 'BG viper'];
+  const chars2 = ['BG brimstone', 'BG phoenix', 'BG yoru', 'BG omen'];
 
   const charSelected1 = chars1[Math.floor(Math.random() * chars1.length)];
   const charSelected2 = chars2[Math.floor(Math.random() * chars2.length)];
