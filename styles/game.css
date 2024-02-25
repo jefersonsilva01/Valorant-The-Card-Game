@@ -42,11 +42,18 @@
 #modal-card {
   display: none;
   z-index: 1;
+}
+#game-area h3,
+#input,
+#modal-card,
+.info-cards span {
   backdrop-filter: blur(5px);
   box-shadow: 10px 10px var(--main-black);
 }
+#game-area h3,
 #input,
 #modal-card,
+.info-cards span,
 .turn {
   box-shadow: 10px 10px var(--main-black);
 }
@@ -133,6 +140,9 @@
   text-decoration: none;
   color: var(--white);
   font-size: 32px;
+}
+#game-area a:hover {
+  text-shadow: 2px 2px var(--main-black);
 }
 #input {
   background-color: var(--white);
