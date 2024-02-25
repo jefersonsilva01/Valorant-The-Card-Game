@@ -5,8 +5,8 @@ function game() {
   const homeScript = document.createElement('script');
   homeScript.setAttribute('src', './src/home.js');
 
-  const btnConfirm = document.getElementById("confirm");
   const btnPlay = document.getElementById('play');
+  const btnConfirm = document.getElementById("confirm");
 
   const gameArea = document.getElementById("game-area");
   const timer = document.getElementById('timer');
@@ -348,12 +348,6 @@ function game() {
     infoCardCPU.onmouseleave = () => hiddenModalCard()
   }
 
-  btnPlay.onclick = e => {
-    e.preventDefault();
-
-    playerPlayCards();
-  }
-
   btnConfirm.onclick = e => {
     e.preventDefault();
 
@@ -375,6 +369,12 @@ function game() {
         .then(html => app.innerHTML = html)
         .then(app.appendChild(homeScript));
     }
+  }
+
+  btnPlay.onclick = e => {
+    e.preventDefault();
+
+    playerPlayCards();
   }
 
   function startGame() {
