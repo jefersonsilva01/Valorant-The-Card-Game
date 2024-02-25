@@ -405,12 +405,11 @@ function game() {
     sound.play();
   }
 
-  sound.addEventListener('loadedmetadata', () => {
-    getSound();
-    setTimeout(playSound, 3000);
-  });
+  getSound();
+  setTimeout(playSound, 3000);
 
   sound.addEventListener('timeupdate', () => {
+    console.log('passei');
     if (sound.currentTime >= 0.97 * sound.duration) {
       getSound();
       playSound();

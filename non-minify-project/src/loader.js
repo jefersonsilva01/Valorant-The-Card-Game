@@ -21,11 +21,11 @@ function loader() {
 
       fetch('./pages/home.html')
         .then(resp => resp.text())
-        .then(html => app.innerHTML = html);
+        .then(html => app.innerHTML = html)
 
       setTimeout(() => {
         app.appendChild(homeScript)
-      }, 1500);
+      }, 1000);
     }
   }
 }

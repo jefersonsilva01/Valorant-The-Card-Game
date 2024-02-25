@@ -125,7 +125,7 @@ function home() {
 
     setTimeout(() => {
       app.appendChild(gameScript);
-    }, 1500);
+    }, 1000);
   }
 
   createChars()
@@ -137,8 +137,6 @@ function home() {
     sound.play();
   }
 
-  sound.addEventListener('loadedmetadata', () => {
-    setTimeout(playSound, 1000);
-  });
+  setTimeout(playSound, 1500);
 }
 home();
