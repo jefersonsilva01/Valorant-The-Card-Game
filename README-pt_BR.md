@@ -6,7 +6,7 @@
 
 - [Sobre o projeto](#sobre-o-projeto)
 - [Layout](#layout)
-- [Tecnologias utilizadas](#tecnologias-utilizadas)
+- [Tecnologias](#tecnologias)
 - [Executando o projeto](#executando-o-projeto)
 - [Licença](#licença)
 
@@ -20,7 +20,7 @@ Você pode ver a demonstração do jogo clicando [aqui](https://jefersonsilva01.
 
 O design do projeto foi feito utilizando o Figma e suas etapas no processo criativo está documentado e pode ser acessado clicando [aqui](https://www.figma.com/file/Axh7rQRFZNxosyKM2EiIa1/VALORANT---THE-CARD-GAME?type=design&node-id=2-4&mode=design).
 
-# Tecnologias utilizadas
+# Tecnologias
 
 Para este projeto foram utilizada as seguintes tecnologias:
 
