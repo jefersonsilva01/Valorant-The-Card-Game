@@ -26,8 +26,6 @@ function home() {
     char2.classList.add('loaded');
   }
 
-  setTimeout(createChars, 1500);
-
   const modal = document.getElementById("modal");
   const modalTitle = document.getElementById("modal-title");
   const modalContent = document.getElementById("modal-content");
@@ -66,65 +64,70 @@ function home() {
   Ultimately, this academic project aims to go beyond the traditional boundaries of teaching, integrating theoretical knowledge with the engaging and exciting practice of electronic games. By combining the creativity of academics with the richness of the Valorant universe, the initiative aims not only to train competent professionals, but also to stimulate a new way of learning, where fun and education go hand in hand in an electrifying and academic challenge.
   <br><br>`
 
-  btnRules.onclick = e => {
-    e.preventDefault();
-    modal.style.display = "block";
-    modalTitle.innerText = "Rules";
-    modalContent.innerHTML = textRules;
-  }
 
-  btnAbout.onclick = e => {
-    e.preventDefault();
-    modal.style.display = "block";
-    modalTitle.innerText = "About";
-    modalContent.innerHTML = textAbout;
-  }
+  setTimeout(() => {
+    btnRules.onclick = e => {
+      e.preventDefault();
+      modal.style.display = "block";
+      modalTitle.innerText = "Rules";
+      modalContent.innerHTML = textRules;
+    }
 
-  btnLeaderboards.onclick = e => {
-    e.preventDefault();
+    btnAbout.onclick = e => {
+      e.preventDefault();
+      modal.style.display = "block";
+      modalTitle.innerText = "About";
+      modalContent.innerHTML = textAbout;
+    }
 
-    const listLeaderboards = document.createElement('div');
+    btnLeaderboards.onclick = e => {
+      e.preventDefault();
 
-    leaders.forEach(element => {
-      const divLeaderboards = document.createElement('div');
-      divLeaderboards.setAttribute('id', 'leaderItem');
+      const listLeaderboards = document.createElement('div');
 
-      const spanName = document.createElement("span");
-      spanName.innerText = "//" + element.name;
+      leaders.forEach(element => {
+        const divLeaderboards = document.createElement('div');
+        divLeaderboards.setAttribute('id', 'leaderItem');
 
-      const spanTime = document.createElement("span");
-      spanTime.innerText = element.time;
+        const spanName = document.createElement("span");
+        spanName.innerText = "//" + element.name;
 
-      divLeaderboards.appendChild(spanName);
-      divLeaderboards.appendChild(spanTime);
+        const spanTime = document.createElement("span");
+        spanTime.innerText = element.time;
 
-      listLeaderboards.appendChild(divLeaderboards);
-    });
+        divLeaderboards.appendChild(spanName);
+        divLeaderboards.appendChild(spanTime);
 
-    modalContent.innerHTML = '';
-    modalContent.appendChild(listLeaderboards);
-    modal.style.display = "block";
-    modalTitle.innerText = "Leaderboards";
-  }
+        listLeaderboards.appendChild(divLeaderboards);
+      });
 
-  btnClose.onclick = () => {
-    modal.style.display = "none";
-  }
+      modalContent.innerHTML = '';
+      modalContent.appendChild(listLeaderboards);
+      modal.style.display = "block";
+      modalTitle.innerText = "Leaderboards";
+    }
 
-  window.onclick = e => {
-    if (e.target.id === 'home') {
+    btnClose.onclick = () => {
       modal.style.display = "none";
     }
-  }
 
-  btnPlayGame.onclick = e => {
-    e.preventDefault();
+    window.onclick = e => {
+      if (e.target.id === 'home') {
+        modal.style.display = "none";
+      }
+    }
 
-    fetch('./pages/game.html')
-      .then(resp => resp.text())
-      .then(html => app.innerHTML = html)
-      .then(app.appendChild(gameScript));
-  }
+    btnPlayGame.onclick = e => {
+      e.preventDefault();
+
+      fetch('./pages/game.html')
+        .then(resp => resp.text())
+        .then(html => app.innerHTML = html)
+        .then(app.appendChild(gameScript));
+    }
+
+    createChars()
+  }, 1500);
 
   const sound = document.getElementById('sound');
 
