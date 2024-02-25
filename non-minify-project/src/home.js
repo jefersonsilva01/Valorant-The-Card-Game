@@ -126,8 +126,9 @@ function home() {
         .then(app.appendChild(gameScript));
     }
 
-    createChars()
   }, 1500);
+
+  createChars()
 
   const sound = document.getElementById('sound');
 
