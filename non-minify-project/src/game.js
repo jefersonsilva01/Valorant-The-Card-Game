@@ -348,13 +348,13 @@ function game() {
     infoCardCPU.onmouseleave = () => hiddenModalCard()
   }
 
-  btnPlay.onclick = function (e) {
+  btnPlay.onclick = e => {
     e.preventDefault();
 
     playerPlayCards();
   }
 
-  btnConfirm.onclick = function (e) {
+  btnConfirm.onclick = e => {
     e.preventDefault();
 
     const inputValue = document.getElementsByTagName('input')[0];
