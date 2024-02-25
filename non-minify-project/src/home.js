@@ -26,7 +26,7 @@ function home() {
     char2.classList.add('loaded');
   }
 
-  createChars();
+  setTimeout(createChars, 1500);
 
   const modal = document.getElementById("modal");
   const modalTitle = document.getElementById("modal-title");

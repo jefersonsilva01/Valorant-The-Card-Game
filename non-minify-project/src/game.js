@@ -348,30 +348,31 @@ function game() {
     infoCardCPU.onmouseleave = () => hiddenModalCard()
   }
 
-  btnConfirm.onclick = e => {
-    e.preventDefault();
-
-    const inputValue = document.getElementsByTagName('input')[0];
-    const timeLeader = timer.innerText;
-
-    const playerLeaderBoard = {
-      name: inputValue.value,
-      time: timeLeader
-    }
-
-    if (inputValue.value.length >= 3) {
-      leaders.unshift(playerLeaderBoard);
-
-      input.style.display = 'none';
-
-      fetch('./pages/home.html')
-        .then(resp => resp.text())
-        .then(html => app.innerHTML = html)
-        .then(app.appendChild(homeScript));
-    }
-  }
 
   setTimeout(() => {
+    btnConfirm.onclick = e => {
+      e.preventDefault();
+
+      const inputValue = document.getElementsByTagName('input')[0];
+      const timeLeader = timer.innerText;
+
+      const playerLeaderBoard = {
+        name: inputValue.value,
+        time: timeLeader
+      }
+
+      if (inputValue.value.length >= 3) {
+        leaders.unshift(playerLeaderBoard);
+
+        input.style.display = 'none';
+
+        fetch('./pages/home.html')
+          .then(resp => resp.text())
+          .then(html => app.innerHTML = html)
+          .then(app.appendChild(homeScript));
+      }
+    }
+
     btnPlay.onclick = e => {
       e.preventDefault();
 
