@@ -1,5 +1,12 @@
 function home() {
 
+  const btnPlayGame = document.getElementById("play-now");
+
+  const btnRules = document.getElementById("rules");
+  const btnAbout = document.getElementById("about");
+  const btnLeaderboards = document.getElementById("leaderboards");
+  const btnClose = document.getElementById("close");
+
   const gameScript = document.createElement('script');
   gameScript.setAttribute('src', './src/game.js');
 
@@ -19,15 +26,11 @@ function home() {
     char2.classList.add('loaded');
   }
 
+  createChars();
+
   const modal = document.getElementById("modal");
   const modalTitle = document.getElementById("modal-title");
   const modalContent = document.getElementById("modal-content");
-
-  const btnRules = document.getElementById("rules");
-  const btnAbout = document.getElementById("about");
-  const btnLeaderboards = document.getElementById("leaderboards");
-  const btnClose = document.getElementById("close");
-  const btnPlayGame = document.getElementById("play-now");
 
   const textRules = `GOAL
     <br><br>
@@ -123,8 +126,6 @@ function home() {
       .then(app.appendChild(gameScript));
   }
 
-  setTimeout(createChars, 1000);
-
   const sound = document.getElementById('sound');
 
   function playSound() {
@@ -133,7 +134,7 @@ function home() {
   }
 
   sound.addEventListener('loadedmetadata', () => {
-    setTimeout(playSound, 3000);
+    setTimeout(playSound, 1000);
   });
 }
 

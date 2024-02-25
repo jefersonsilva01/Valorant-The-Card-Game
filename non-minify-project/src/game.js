@@ -5,11 +5,13 @@ function game() {
   const homeScript = document.createElement('script');
   homeScript.setAttribute('src', './src/home.js');
 
+  const btnConfirm = document.getElementById("confirm");
+  const btnPlay = document.getElementById('play');
+
   const gameArea = document.getElementById("game-area");
   const timer = document.getElementById('timer');
 
   const input = document.getElementById("input");
-  const btnConfirm = document.getElementById("confirm");
 
   const modalCard = document.getElementById('modal-card');
   const modalCardTitle = document.getElementById('modal-card-title');
@@ -22,8 +24,6 @@ function game() {
   const cardsCPU = document.getElementById('cards-cpu');
   const cpuScore = document.getElementById('score-cpu');
   const cpuTurn = document.getElementById('cpu-turn');
-
-  const btnPlay = document.getElementById('play');
 
   let turnStats = 0;
 
