@@ -63,21 +63,21 @@ function home() {
   Ultimately, this academic project aims to go beyond the traditional boundaries of teaching, integrating theoretical knowledge with the engaging and exciting practice of electronic games. By combining the creativity of academics with the richness of the Valorant universe, the initiative aims not only to train competent professionals, but also to stimulate a new way of learning, where fun and education go hand in hand in an electrifying and academic challenge.
   <br><br>`
 
-  btnRules.onclick = function (e) {
+  btnRules.onclick = e => {
     e.preventDefault();
     modal.style.display = "block";
     modalTitle.innerText = "Rules";
     modalContent.innerHTML = textRules;
   }
 
-  btnAbout.onclick = function (e) {
+  btnAbout.onclick = e => {
     e.preventDefault();
     modal.style.display = "block";
     modalTitle.innerText = "About";
     modalContent.innerHTML = textAbout;
   }
 
-  btnLeaderboards.onclick = function (e) {
+  btnLeaderboards.onclick = e => {
     e.preventDefault();
 
     const listLeaderboards = document.createElement('div');
@@ -104,17 +104,17 @@ function home() {
     modalTitle.innerText = "Leaderboards";
   }
 
-  btnClose.onclick = function () {
+  btnClose.onclick = () => {
     modal.style.display = "none";
   }
 
-  window.onclick = function (event) {
-    if (event.target.id === 'home') {
+  window.onclick = e => {
+    if (e.target.id === 'home') {
       modal.style.display = "none";
     }
   }
 
-  btnPlayGame.onclick = function (e) {
+  btnPlayGame.onclick = e => {
     e.preventDefault();
 
     fetch('./pages/game.html')
