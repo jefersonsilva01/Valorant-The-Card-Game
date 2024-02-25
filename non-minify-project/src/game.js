@@ -371,11 +371,13 @@ function game() {
     }
   }
 
-  btnPlay.onclick = e => {
-    e.preventDefault();
+  setTimeout(() => {
+    btnPlay.onclick = e => {
+      e.preventDefault();
 
-    playerPlayCards();
-  }
+      playerPlayCards();
+    }
+  }, 1500);
 
   function startGame() {
     createCards(playGame.PlayerCards, 'player');
