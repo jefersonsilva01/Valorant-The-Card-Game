@@ -70,7 +70,7 @@ function game() {
       let XRel = e.pageX - el.offsetLeft
       let YRel = e.pageY - el.offsetTop
 
-      let YAngle = -(0.5 - (XRel / width)) * 10;
+      let YAngle = -(0.5 - (XRel / width)) * 7;
       let XAngle = (0.5 - (YRel / width)) * 5;
 
       setProp(el, '--dy', `${YAngle}deg`)
@@ -102,7 +102,7 @@ function game() {
 
     cardFront = `
       <div id="${card.id}" class="card-${player}" style="background-image: url(${card.cover});">      
-        <img class="card-avatar" src="${card.avatar}" alt="${card.name}" />
+        <img class="card-avatar-${player}" src="${card.avatar}" alt="${card.name}" />
         <img class="info-${player}" src="./assets/images/info.svg">
         <div class="card-info">
           <span class="name">${card.name}</span>
@@ -263,6 +263,7 @@ function game() {
           cardPlayer.classList.add('remove-player-left');
           createCards(playGame.CPUCards, 'cpu');
           createCards(playGame.PlayerCards, 'player');
+          cardMove();
         }, 2000);
 
         turnStats = 1;
@@ -330,6 +331,7 @@ function game() {
         cardPlayer.classList.add('remove-player-left');
         createCards(playGame.CPUCards, 'cpu');
         createCards(playGame.PlayerCards, 'player');
+        cardMove();
       }, 2000);
 
       turnStats = 0;
@@ -417,6 +419,7 @@ function game() {
     modalCards();
     setSkills('player');
   }
+
 
   startGame();
   //End game logic

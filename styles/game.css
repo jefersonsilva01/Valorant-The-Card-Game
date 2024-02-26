@@ -227,14 +227,6 @@
   transform-style: preserve-3d;
 }
 .card-back,
-.card-cpu,
-.card-info,
-.card-player {
-  position: absolute;
-  border-radius: 8px !important;
-  width: 100%;
-}
-.card-back,
 .card-flip-cpu-fliped .card-inner,
 .card-flip-player-fliped .card-inner {
   transform: rotateY(180deg);
@@ -242,11 +234,14 @@
 .card-back,
 .card-cpu,
 .card-player {
+  position: absolute;
+  width: 100%;
   height: 100%;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   transform-style: preserve-3d;
+  border-radius: 8px !important;
 }
 .card-info {
   background: #1b1d20;
@@ -256,9 +251,12 @@
     #2d2d30 15%,
     rgba(32, 56, 61, 0) 100%
   );
+  position: absolute;
   padding: 8px;
   display: block;
+  width: 100%;
   bottom: 0;
+  border-radius: 8px !important;
 }
 .class,
 .info-cpu,
@@ -298,12 +296,6 @@
   cursor: pointer;
   position: absolute;
   right: 0;
-}
-.card-avatar,
-.card-avatar:hover {
-  width: auto !important;
-  height: auto !important;
-  position: absolute;
 }
 .remove-player-left {
   rotate: -30deg;
@@ -349,12 +341,20 @@
   height: 100%;
   padding-top: 16px;
 }
-.card-avatar {
+.card-avatar-cpu,
+.card-avatar-player {
+  width: auto !important;
+  height: auto !important;
+  position: absolute;
   bottom: 0;
   left: -50%;
   transition: 0.5s ease-in-out;
 }
-.card-avatar:hover {
+.card-avatar-cpu:hover,
+.card-avatar-player:hover {
+  width: auto !important;
+  height: auto !important;
+  position: absolute;
   bottom: 2px;
   left: -45%;
 }

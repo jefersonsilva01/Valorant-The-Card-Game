@@ -373,7 +373,8 @@
   padding-top: 16px;
 }
 
-.card-avatar {
+.card-avatar-player,
+.card-avatar-cpu {
   width: auto !important;
   height: auto !important;
   position: absolute;
@@ -382,7 +383,8 @@
   transition: all 0.5s ease-in-out;
 }
 
-.card-avatar:hover {
+.card-avatar-player:hover,
+.card-avatar-cpu:hover {
   width: auto !important;
   height: auto !important;
   position: absolute;
