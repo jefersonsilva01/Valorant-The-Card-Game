@@ -26,7 +26,7 @@ The project design was made using Figma and its steps in the creative process ar
 
 The following technologies were used for this project:
 
-[![My Skills](https://skillicons.dev/icons?i=js,html,css,git,github,figma,jasmine)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=vscode,bash,html,css,js,git,github,figma,jasmine)](https://skillicons.dev)
 
 # Running the project
 

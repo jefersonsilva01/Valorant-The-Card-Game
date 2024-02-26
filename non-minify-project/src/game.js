@@ -60,6 +60,33 @@ function game() {
     }
   }
 
+  function cardMove() {
+    const el = document.querySelector('.card-flip-player');
+
+    const setProp = (el, prop, value) => el.style.setProperty(prop, value);
+
+    const onMouseUpdate = e => {
+      let width = el.offsetWidth
+      let XRel = e.pageX - el.offsetLeft
+      let YRel = e.pageY - el.offsetTop
+
+      let YAngle = -(0.5 - (XRel / width)) * 10;
+      let XAngle = (0.5 - (YRel / width)) * 5;
+
+      setProp(el, '--dy', `${YAngle}deg`)
+      setProp(el, '--dx', `${XAngle}deg`)
+    }
+
+    const resetProps = () => {
+      el.style.setProperty('--dy', '0')
+      el.style.setProperty('--dx', '0')
+    }
+
+    el.addEventListener('mousemove', onMouseUpdate, false)
+    el.addEventListener('mouseenter', onMouseUpdate, false)
+    el.addEventListener('mouseleave', resetProps, false)
+  }
+
   function createCards(arrayCards, player) {
     const card = arrayCards[0]
     const cardContainer = document.createElement('div');
@@ -75,6 +102,7 @@ function game() {
 
     cardFront = `
       <div id="${card.id}" class="card-${player}" style="background-image: url(${card.cover});">      
+        <img class="card-avatar" src="${card.avatar}" alt="${card.name}" />
         <img class="info-${player}" src="./assets/images/info.svg">
         <div class="card-info">
           <span class="name">${card.name}</span>
@@ -187,6 +215,7 @@ function game() {
       setStyle();
       updateScreen();
       cardPlayer.remove();
+      cardMove();
       modalCards();
       setSkills('player');
     }, 3000)
@@ -247,7 +276,7 @@ function game() {
           cpuPlayCard();
         }, 3000)
       }
-      endGame();
+      setTimeout(endGame, 2500);
     }
   }
 
@@ -313,7 +342,7 @@ function game() {
         setStyle();
       }, 3000)
     }
-    endGame();
+    setTimeout(endGame, 2500);
   }
 
   function modalCards() {
@@ -349,8 +378,6 @@ function game() {
     infoCardCPU.onmouseleave = () => hiddenModalCard()
   }
 
-
-
   btnConfirm.onclick = e => {
     e.preventDefault();
 
@@ -382,6 +409,7 @@ function game() {
 
   function startGame() {
     createCards(playGame.PlayerCards, 'player');
+    cardMove();
     createCards(playGame.CPUCards, 'cpu');
     chronometer();
     setStyle();
@@ -409,7 +437,6 @@ function game() {
   setTimeout(playSound, 3000);
 
   sound.addEventListener('timeupdate', () => {
-    console.log('passei');
     if (sound.currentTime >= 0.97 * sound.duration) {
       getSound();
       playSound();

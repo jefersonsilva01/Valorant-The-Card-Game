@@ -24,7 +24,7 @@ O design do projeto foi feito utilizando o Figma e suas etapas no processo criat
 
 Para este projeto foram utilizada as seguintes tecnologias:
 
-[![My Skills](https://skillicons.dev/icons?i=js,html,css,git,github,figma,jasmine)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=vscode,bash,html,css,js,git,github,figma,jasmine)](https://skillicons.dev)
 
 # Executando o projeto
 

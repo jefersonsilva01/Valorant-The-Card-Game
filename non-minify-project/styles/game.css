@@ -8,6 +8,9 @@
   position: relative;
   overflow-y: scroll;
   overflow-x: hidden;
+  --dy: 1;
+  --dx: 1;
+  --dz: 0;
 }
 
 #timer {
@@ -38,7 +41,7 @@
   font-size: 32px;
   color: var(--main-red);
   text-align: center;
-  border: 1px solid var(--main-red);
+  border: 3.2px solid var(--main-red);
   width: 284px;
   height: 64px;
   padding-top: 16px;
@@ -66,7 +69,7 @@
   font-size: 32px;
   color: var(--main-red);
   text-align: center;
-  border: 1px solid var(--main-red);
+  border: 3.2px solid var(--main-red);
   padding: 8px 24px;
 }
 
@@ -99,6 +102,7 @@
   font-size: 32px;
   text-align: center;
   margin-top: 64px;
+  z-index: 1;
 }
 
 #game-area a:hover {
@@ -186,16 +190,22 @@
 /* Begin card style */
 .card-flip-player,
 .card-flip-cpu {
-  border: 3.2px solid var(--white) !important;
+  border: 7.2px solid var(--white) !important;
+  border-radius: 16px !important;
   width: 285px;
   height: 480px;
   position: absolute;
-  top: 88px;
+  top: 0px;
+  box-shadow: 10px 10px var(--main-black-blur);
 }
 
 .card-flip-player {
   left: 0px;
   cursor: pointer;
+  transform: perspective(525px) translateZ(0) rotateX(var(--dx))
+    rotateY(var(--dy));
+  transition: all 150ms linear 0s;
+  overflow: visible;
 }
 
 .card-flip-cpu {
@@ -224,6 +234,7 @@
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   transform-style: preserve-3d;
+  border-radius: 16px !important;
 }
 
 .card-back {
@@ -243,6 +254,7 @@
   display: block;
   width: 100%;
   bottom: 0;
+  border-radius: 16px !important;
 }
 
 .card-info .name {
@@ -277,6 +289,7 @@
 
 .skill-player span:hover {
   color: var(--main-red) !important;
+  text-shadow: 2px 2px var(--main-black);
   cursor: pointer;
 }
 
@@ -287,30 +300,32 @@
   float: right;
   margin-top: 16px !important;
   cursor: pointer;
+  position: absolute;
+  right: 0;
 }
 
 .remove-player-left {
   rotate: -30deg;
   left: -1400px;
-  transition: rotate 1s ease, left 1s ease-out;
+  transition: rotate 2s ease, left 1s ease-out;
 }
 
 .remove-player-right {
   rotate: 30deg;
   left: 1400px;
-  transition: rotate 1s ease, left 1s ease-out;
+  transition: rotate 2s ease, left 1s ease-out;
 }
 
 .remove-cpu-left {
   rotate: -30deg;
   right: 1400px;
-  transition: rotate 1s ease, right 1s ease-out;
+  transition: rotate 2s ease, right 1s ease-out;
 }
 
 .remove-cpu-right {
   rotate: 30deg;
   right: -1400px;
-  transition: rotate 1s ease, right 1s ease-out;
+  transition: rotate 2s ease, right 1s ease-out;
 }
 
 #modal-card {
@@ -320,7 +335,7 @@
   padding: 16px;
   position: absolute;
   z-index: 1;
-  top: 30%;
+  top: 25%;
   left: 37%;
   background-color: var(--main-black-blur);
   backdrop-filter: blur(5px);
@@ -356,6 +371,23 @@
   width: 100%;
   height: 100%;
   padding-top: 16px;
+}
+
+.card-avatar {
+  width: auto !important;
+  height: auto !important;
+  position: absolute;
+  bottom: 0;
+  left: -50%;
+  transition: all 0.5s ease-in-out;
+}
+
+.card-avatar:hover {
+  width: auto !important;
+  height: auto !important;
+  position: absolute;
+  bottom: 2px;
+  left: -45%;
 }
 
 /* End card style */
