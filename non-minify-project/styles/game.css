@@ -234,7 +234,7 @@
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   transform-style: preserve-3d;
-  border-radius: 16px !important;
+  border-radius: 8px !important;
 }
 
 .card-back {
@@ -254,7 +254,7 @@
   display: block;
   width: 100%;
   bottom: 0;
-  border-radius: 16px !important;
+  border-radius: 8px !important;
 }
 
 .card-info .name {
