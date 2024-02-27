@@ -16,18 +16,18 @@ function lose() {
       .then(html => app.innerHTML = html);
 
     setTimeout(() => app.appendChild(gameScript), 1000)
+  }
 
-    btnQuit.onclick = function (e) {
-      e.preventDefault();
+  btnQuit.onclick = function (e) {
+    e.preventDefault();
 
-      fetch('./pages/home.html')
-        .then(resp => resp.text())
-        .then(html => app.innerHTML = html);
+    fetch('./pages/home.html')
+      .then(resp => resp.text())
+      .then(html => app.innerHTML = html);
 
 
-      setTimeout(() => app.appendChild(homeScript), 1000)
+    setTimeout(() => app.appendChild(homeScript), 1000)
 
-    }
   }
 }
 

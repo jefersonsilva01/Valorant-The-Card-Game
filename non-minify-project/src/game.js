@@ -235,6 +235,7 @@ function game() {
 
   function endGame() {
     const result = playGame.gameEnded();
+    updateScreen();
     if (result === 'player lose') {
       loseScreen();
     } else if (result === 'cpu lose') {
