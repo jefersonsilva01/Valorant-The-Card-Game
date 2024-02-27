@@ -13,17 +13,21 @@ function lose() {
 
     fetch('./pages/game.html')
       .then(resp => resp.text())
-      .then(html => app.innerHTML = html)
-      .then(app.appendChild(gameScript));
-  }
+      .then(html => app.innerHTML = html);
 
-  btnQuit.onclick = function (e) {
-    e.preventDefault();
+    setTimeout(() => app.appendChild(gameScript), 1000)
 
-    fetch('./pages/home.html')
-      .then(resp => resp.text())
-      .then(html => app.innerHTML = html)
-      .then(app.appendChild(homeScript));
+    btnQuit.onclick = function (e) {
+      e.preventDefault();
+
+      fetch('./pages/home.html')
+        .then(resp => resp.text())
+        .then(html => app.innerHTML = html);
+
+
+      setTimeout(() => app.appendChild(homeScript), 1000)
+
+    }
   }
 }
 

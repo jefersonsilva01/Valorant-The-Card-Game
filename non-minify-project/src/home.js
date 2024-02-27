@@ -123,9 +123,7 @@ function home() {
       .then(resp => resp.text())
       .then(html => app.innerHTML = html)
 
-    setTimeout(() => {
-      app.appendChild(gameScript);
-    }, 1000);
+    setTimeout(() => app.appendChild(gameScript), 1000);
   }
 
   createChars()

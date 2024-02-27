@@ -174,9 +174,14 @@ function game() {
 
   function playerWin() {
     let cardCPU = document.querySelector('.card-flip-cpu');
+    let cardPlayer = document.querySelector('.card-flip-player');
 
     if (cardCPU.classList.contains('card-flip-cpu-fliped')) {
       cardCPU.classList.remove('card-flip-cpu-fliped');
+    }
+
+    if (cardPlayer.classList.contains('card-flip-player-fliped')) {
+      cardPlayer.classList.remove('card-flip-player-fliped');
     }
 
     cpuScore.innerText = playGame.skillsCPU.skill;
@@ -331,7 +336,6 @@ function game() {
         cardPlayer.classList.add('remove-player-left');
         createCards(playGame.CPUCards, 'cpu');
         createCards(playGame.PlayerCards, 'player');
-        cardMove();
       }, 2000);
 
       turnStats = 0;
@@ -341,6 +345,7 @@ function game() {
         cardPlayer.remove();
         setSkills('player');
         modalCards();
+        cardMove();
         setStyle();
       }, 3000)
     }
@@ -419,7 +424,6 @@ function game() {
     modalCards();
     setSkills('player');
   }
-
 
   startGame();
   //End game logic
