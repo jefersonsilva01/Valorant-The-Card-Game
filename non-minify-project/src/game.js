@@ -26,7 +26,7 @@ function game() {
   const cpuScore = document.getElementById('score-cpu');
   const cpuTurn = document.getElementById('cpu-turn');
 
-  const audios = ['CALAMITOUS', 'LA CRIATURA', 'HEIST', 'PRESTIGE', 'TRANQUIL'];
+  const audios = ['DIE FOR YOU', 'FIRE AGAIN', 'VISIONS', 'TICKING AWAY'];
 
   const BGImage = document.querySelector('#game');
 

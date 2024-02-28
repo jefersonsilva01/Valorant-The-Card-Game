@@ -10,7 +10,8 @@ function home() {
   const gameScript = document.createElement('script');
   gameScript.setAttribute('src', './src/game.js');
 
-  const sound = new Audio("./assets/audios/MIND THE DROP.mp3");
+  const audios = ['CALAMITOUS', 'LA CRIATURA', 'HEIST', 'PRESTIGE', 'TRANQUIL', 'MIND THE DROP'];
+  let sound;
 
   const char1 = document.querySelector('.char-1');
   const char2 = document.querySelector('.char-2')
@@ -61,8 +62,10 @@ function home() {
   <br><br>`
 
   function playMusic() {
+    const getAudio = audios[Math.floor(Math.random() * audios.length)];
+    sound = new Audio(`./assets/audios/${getAudio}.mp3`);
     sound.volume = 1;
-    sound.volume.loop = true;
+    sound.addEventListener('ended', () => playMusic());
     sound.play();
   }
 
