@@ -26,6 +26,11 @@ function game() {
   const cpuScore = document.getElementById('score-cpu');
   const cpuTurn = document.getElementById('cpu-turn');
 
+  const BGImage = document.querySelector('#game');
+
+  const BG = ['BG', 'BG2', 'BG3', 'BG4'];
+  const BGSelected = BG[Math.floor(Math.random() * BG.length)];
+
   let turnStats = 0;
 
   let intervaleIdMilleseconds, intervaleIdSeconds;
@@ -34,6 +39,11 @@ function game() {
   const playGame = new CardGame(characters);
   playGame.shuffleCards();
   playGame.getCards();
+
+  function setBG() {
+    BGImage.style.background = `url('./assets/images/${BGSelected}.png')`;
+    BGImage.classList.add('loaded');
+  }
 
   function chronometer() {
     let seconds = 0, milleSeconds = 0;
@@ -44,7 +54,7 @@ function game() {
       let secondsText = seconds % 60 < 10 ? '0' + seconds % 60 : seconds % 60
       let minutesText = Math.floor(seconds / 60) < 10
         ? '0' + Math.floor(seconds / 60)
-        : seconds % 60;
+        : seconds / 60;
 
       timer.innerText = `${minutesText}:${secondsText}.0${milleSeconds % 10}`;
     }, 100);
@@ -132,11 +142,7 @@ function game() {
     cardBack = `
       <div 
         class="card-back" 
-        style="
-          background-image: url('./assets/images/card unflip.png');
-          background-size: cover;
-          background-position: center;
-        ">
+        style="background-image: url('./assets/images/BG card back 3.png');">
       </div>
       `
     cardInner.innerHTML += cardBack;
@@ -213,6 +219,7 @@ function game() {
 
     setTimeout(() => {
       cardPlayer.classList.add('remove-player-right');
+      console.log('passei');
       createCards(playGame.PlayerCards, 'player');
     }, 2000);
     turnStats = 0;
@@ -345,7 +352,8 @@ function game() {
         cardCPU.remove();
         cardPlayer.remove();
         setSkills('player');
-        modalCards();
+        modalCards('player');
+        modalCards('cpu');
         cardMove();
         setStyle();
       }, 3000)
@@ -424,6 +432,7 @@ function game() {
     updateScreen();
     modalCards();
     setSkills('player');
+    setBG();
   }
 
   startGame();

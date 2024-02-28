@@ -16,12 +16,13 @@ function home() {
   const charSelected1 = chars1[Math.floor(Math.random() * chars1.length)];
   const charSelected2 = chars2[Math.floor(Math.random() * chars2.length)];
 
+  const char1 = document.querySelector('.char-1');
+  const char2 = document.querySelector('.char-2')
+
   function createChars() {
-    const char1 = document.querySelector('.char-1');
     char1.setAttribute('src', `./assets/images/${charSelected1}.png`)
     char1.classList.add('loaded');
 
-    const char2 = document.querySelector('.char-2')
     char2.setAttribute('src', `./assets/images/${charSelected2}.png`)
     char2.classList.add('loaded');
   }

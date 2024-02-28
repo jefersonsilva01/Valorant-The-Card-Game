@@ -1,5 +1,4 @@
 #game {
-  background-image: url("../assets/images/BG.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -61,8 +60,15 @@
   width: 285px;
   height: 480px;
   background-color: var(--main-black);
-  border: 4px solid var(--main-red);
+  border: 4px solid var(--white);
+  border-radius: 16px;
   margin-bottom: 24px;
+  text-align: center;
+}
+
+.card-area > img {
+  position: relative;
+  top: 40%;
 }
 
 #game-area span {
@@ -113,7 +119,6 @@
 #input {
   display: none;
   background-color: var(--white);
-  backdrop-filter: blur(5px);
   width: 763px;
   height: 247px;
   padding: 16px;
@@ -190,13 +195,15 @@
 /* Begin card style */
 .card-flip-player,
 .card-flip-cpu {
-  border: 7.2px solid var(--white) !important;
+  border: 10px solid transparent;
   border-radius: 16px !important;
+  background: linear-gradient(#1b1d20, #1b1d20) padding-box,
+    linear-gradient(144deg, var(--white), var(--main-black)) border-box;
   width: 285px;
   height: 480px;
   position: absolute;
   top: 0px;
-  box-shadow: 10px 10px var(--main-black-blur);
+  box-shadow: 5px 5px var(--main-black);
 }
 
 .card-flip-player {
@@ -235,6 +242,16 @@
   -moz-backface-visibility: hidden;
   transform-style: preserve-3d;
   border-radius: 8px !important;
+  box-shadow: none;
+  transition: box-shadow 0.2s ease-in-out;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card-player:hover,
+.card-cpu:hover {
+  box-shadow: inset var(--main-black) 5px 10px 15px 15px;
 }
 
 .card-back {
@@ -246,8 +263,8 @@
   background: linear-gradient(
     0deg,
     rgba(27, 29, 32, 1) 0%,
-    rgba(45, 45, 48, 1) 15%,
-    rgba(32, 56, 61, 0) 100%
+    rgb(29, 29, 32) 25%,
+    rgba(2, 3, 3, 0) 100%
   );
   position: absolute;
   padding: 8px;
@@ -258,11 +275,12 @@
 }
 
 .card-info .name {
-  font-size: 24px !important;
+  font-size: 23px !important;
   font-family: Valorant !important;
   color: var(--white) !important;
   display: inline-block;
   border: none !important;
+  text-shadow: 2px 2px 0px var(--main-black);
 }
 
 .class {
@@ -285,11 +303,11 @@
   color: var(--white) !important;
   text-align: center;
   border: none !important;
+  text-shadow: 2px 2px var(--main-black);
 }
 
 .skill-player span:hover {
   color: var(--main-red) !important;
-  text-shadow: 2px 2px var(--main-black);
   cursor: pointer;
 }
 
@@ -385,10 +403,7 @@
 
 .card-avatar-player:hover,
 .card-avatar-cpu:hover {
-  width: auto !important;
-  height: auto !important;
-  position: absolute;
-  bottom: 2px;
+  bottom: 5px;
   left: -45%;
 }
 
