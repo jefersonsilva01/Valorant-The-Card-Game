@@ -12,7 +12,7 @@
 
 # Sobre o projeto
 
-O projeto tem como objetivo a criação de um jogo baseado no clássico jogo de cartas super trunfo, onde jogadores utilizam cartas temáticas ilustradas e comparam seus atribuídos para saber quem venceria em cada critério, aqui neste caso a temática utilizada é a do popular jogo online Valorant, onde as cartas são baseadas em seus respectivos personagens.
+O projeto tem como objetivo a criação de um jogo baseado no clássico jogo de cartas super trunfo, onde jogadores utilizam cartas temáticas ilustradas e comparam seus atribuídos para saber quem venceria em cada critério, aqui neste caso a temática utilizada é a do popular jogo online [Valorant](https://playvalorant.com/pt-br/), onde as cartas são baseadas em seus respectivos personagens.
 
 Você pode ver a demonstração do jogo clicando [aqui](https://jefersonsilva01.github.io/Valorant-The-Card-Game/).
 

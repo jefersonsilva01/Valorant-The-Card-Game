@@ -219,7 +219,6 @@ function game() {
 
     setTimeout(() => {
       cardPlayer.classList.add('remove-player-right');
-      console.log('passei');
       createCards(playGame.PlayerCards, 'player');
     }, 2000);
     turnStats = 0;
