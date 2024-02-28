@@ -10,20 +10,17 @@ function home() {
   const gameScript = document.createElement('script');
   gameScript.setAttribute('src', './src/game.js');
 
-  const chars1 = ['BG jett', 'BG raze', 'BG killjoy', 'BG viper'];
-  const chars2 = ['BG brimstone', 'BG phoenix', 'BG yoru', 'BG omen'];
-
-  const charSelected1 = chars1[Math.floor(Math.random() * chars1.length)];
-  const charSelected2 = chars2[Math.floor(Math.random() * chars2.length)];
+  const charSelected1 = characters[Math.floor(Math.random() * characters.length)];
+  const charSelected2 = characters[Math.floor(Math.random() * characters.length)];
 
   const char1 = document.querySelector('.char-1');
   const char2 = document.querySelector('.char-2')
 
   function createChars() {
-    char1.setAttribute('src', `./assets/images/${charSelected1}.png`)
+    char1.setAttribute('src', `${charSelected1.avatar}`)
     char1.classList.add('loaded');
 
-    char2.setAttribute('src', `./assets/images/${charSelected2}.png`)
+    char2.setAttribute('src', `${charSelected2.avatar}`)
     char2.classList.add('loaded');
   }
 

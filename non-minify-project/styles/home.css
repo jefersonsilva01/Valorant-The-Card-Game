@@ -125,8 +125,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  height: 1000px;
-  width: 1300px;
   opacity: 0;
   transition: opacity 2s ease, transform 2s ease;
 }
@@ -134,17 +132,17 @@
 .char-1.loaded,
 .char-2.loaded {
   opacity: 1;
-  height: 966px;
-  width: 1280px;
+  height: 700px;
+  width: 600px;
 }
 
 .char-1 {
-  left: 250px;
+  left: 150px;
   margin-left: 28px;
 }
 
 .char-2 {
-  right: 250px;
+  right: 150px;
   margin-right: 28px;
 }
 
