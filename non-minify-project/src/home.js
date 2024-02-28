@@ -16,10 +16,12 @@ function home() {
   const char1 = document.querySelector('.char-1');
   const char2 = document.querySelector('.char-2')
 
-  const [charSelected1] = characters.splice(
-    Math.floor(Math.random() * characters.length), 1
+  const charsArray = [...characters]
+
+  const [charSelected1] = charsArray.splice(
+    Math.floor(Math.random() * charsArray.length), 1
   );
-  const [charSelected2] = characters.splice(
+  const [charSelected2] = charsArray.splice(
     Math.floor(Math.random() * characters.length), 1
   );
 
