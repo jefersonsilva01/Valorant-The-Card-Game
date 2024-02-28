@@ -10,11 +10,15 @@ function home() {
   const gameScript = document.createElement('script');
   gameScript.setAttribute('src', './src/game.js');
 
-  const charSelected1 = characters[Math.floor(Math.random() * characters.length)];
-  const charSelected2 = characters[Math.floor(Math.random() * characters.length)];
-
   const char1 = document.querySelector('.char-1');
   const char2 = document.querySelector('.char-2')
+
+  const [charSelected1] = characters.splice(
+    Math.floor(Math.random() * characters.length), 1
+  );
+  const [charSelected2] = characters.splice(
+    Math.floor(Math.random() * characters.length), 1
+  );
 
   function createChars() {
     char1.setAttribute('src', `${charSelected1.avatar}`)
