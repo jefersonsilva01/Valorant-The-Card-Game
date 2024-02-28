@@ -14,13 +14,11 @@
 #container span:first-child {
   color: var(--main-black);
   background-color: var(--main-red);
-  box-shadow: 0px 0px 4px 1px var(--main-red);
   padding: 4px 16px;
 }
 
 #container :nth-child(2) {
   color: var(--main-red);
-  text-shadow: 0px 0px 4px var(--main-red);
   margin-left: 16px;
 }
 
@@ -30,7 +28,7 @@
 
 #bar {
   border-color: 1px solid var(--main-red);
-  box-shadow: 0px 0px 4px 1px var(--main-red);
+  box-shadow: 0px 0px 1px 1px var(--main-red);
   width: 825px;
   height: 28px;
   margin-top: 16px;
@@ -39,7 +37,6 @@
 
 #loader {
   background-color: var(--main-red);
-  box-shadow: 0px 0px 4px 1px #ff4655;
   width: 1%;
   height: 100%;
 }
@@ -48,10 +45,9 @@
   font-family: JetBrainsMono-Bold;
   font-size: 16px;
   color: var(--main-red);
-  text-shadow: 0px 0px 4px var(--main-red);
   text-align: center;
-  border-color: 1px solid var(--main-red);
-  box-shadow: 0px 0px 4px 1px var(--main-red);
+  border-color: 2px solid var(--main-red);
+  box-shadow: 0px 0px 1px 1px var(--main-red);
   width: 65px;
   height: 28px;
   padding: 4px 16px;
