@@ -214,6 +214,11 @@
   position: absolute;
   top: 0;
   box-shadow: 5px 5px var(--main-black);
+  transition: background 0.5s ease-in-out;
+}
+.card-flip-player:hover {
+  background: linear-gradient(#1b1d20, #1b1d20) padding-box,
+    linear-gradient(144deg, var(--main-black), var(--white)) border-box;
 }
 .card-flip-player {
   left: 0;
