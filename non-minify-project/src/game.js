@@ -26,6 +26,8 @@ function game() {
   const cpuScore = document.getElementById('score-cpu');
   const cpuTurn = document.getElementById('cpu-turn');
 
+  const audios = ['CALAMITOUS', 'LA CRIATURA', 'HEIST', 'PRESTIGE', 'TRANQUIL'];
+
   const BGImage = document.querySelector('#game');
 
   const BG = ['BG', 'BG2', 'BG3', 'BG4'];
@@ -33,7 +35,7 @@ function game() {
 
   let turnStats = 0;
 
-  let intervaleIdMilleseconds, intervaleIdSeconds;
+  let intervaleIdMilleseconds, intervaleIdSeconds, sound;
 
   //Begin game logic
   const playGame = new CardGame(characters);
@@ -233,6 +235,7 @@ function game() {
   }
 
   function loseScreen() {
+    sound.pause();
     fetch('./pages/lose.html')
       .then(resp => resp.text())
       .then(html => app.innerHTML = html)
@@ -241,13 +244,14 @@ function game() {
 
   function endGame() {
     const result = playGame.gameEnded();
-    updateScreen();
     if (result === 'player lose') {
+      updateScreen();
       loseScreen();
     } else if (result === 'cpu lose') {
       input.style.display = 'block';
       clearInterval(intervaleIdMilleseconds);
       clearInterval(intervaleIdSeconds);
+      updateScreen();
     }
   }
 
@@ -393,6 +397,14 @@ function game() {
     infoCardCPU.onmouseleave = () => hiddenModalCard()
   }
 
+  function playMusic() {
+    const getAudio = audios[Math.floor(Math.random() * audios.length)];
+    sound = new Audio(`./assets/audios/${getAudio}.mp3`);
+    sound.volume = 1;
+    sound.addEventListener('ended', () => playMusic());
+    sound.play();
+  }
+
   btnConfirm.onclick = e => {
     e.preventDefault();
 
@@ -408,6 +420,8 @@ function game() {
       leaders.unshift(playerLeaderBoard);
 
       input.style.display = 'none';
+
+      sound.pause();
 
       fetch('./pages/home.html')
         .then(resp => resp.text())
@@ -432,32 +446,11 @@ function game() {
     modalCards();
     setSkills('player');
     setBG();
+    playMusic();
   }
 
   startGame();
   //End game logic
-
-  let sound = document.getElementById('sound-01'), soundId;
-
-  function getSound() {
-    soundId = Math.floor(Math.random() * (5 - 1) + 1)
-    sound = document.getElementById(`sound-0${soundId}`);
-  }
-
-  function playSound() {
-    sound.currentTime = 0;
-    sound.play();
-  }
-
-  getSound();
-  setTimeout(playSound, 3000);
-
-  sound.addEventListener('timeupdate', () => {
-    if (sound.currentTime >= 0.97 * sound.duration) {
-      getSound();
-      playSound();
-    }
-  });
 }
 
 game();

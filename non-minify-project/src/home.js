@@ -10,6 +10,8 @@ function home() {
   const gameScript = document.createElement('script');
   gameScript.setAttribute('src', './src/game.js');
 
+  const sound = new Audio("./assets/audios/MIND THE DROP.mp3");
+
   const char1 = document.querySelector('.char-1');
   const char2 = document.querySelector('.char-2')
 
@@ -19,14 +21,6 @@ function home() {
   const [charSelected2] = characters.splice(
     Math.floor(Math.random() * characters.length), 1
   );
-
-  function createChars() {
-    char1.setAttribute('src', `${charSelected1.avatar}`)
-    char1.classList.add('loaded');
-
-    char2.setAttribute('src', `${charSelected2.avatar}`)
-    char2.classList.add('loaded');
-  }
 
   const modal = document.getElementById("modal");
   const modalTitle = document.getElementById("modal-title");
@@ -66,6 +60,19 @@ function home() {
   Ultimately, this academic project aims to go beyond the traditional boundaries of teaching, integrating theoretical knowledge with the engaging and exciting practice of electronic games. By combining the creativity of academics with the richness of the Valorant universe, the initiative aims not only to train competent professionals, but also to stimulate a new way of learning, where fun and education go hand in hand in an electrifying and academic challenge.
   <br><br>`
 
+  function playMusic() {
+    sound.volume = 1;
+    sound.volume.loop = true;
+    sound.play();
+  }
+
+  function createChars() {
+    char1.setAttribute('src', `${charSelected1.avatar}`)
+    char1.classList.add('loaded');
+
+    char2.setAttribute('src', `${charSelected2.avatar}`)
+    char2.classList.add('loaded');
+  }
 
   btnRules.onclick = e => {
     e.preventDefault();
@@ -120,6 +127,7 @@ function home() {
 
   btnPlayGame.onclick = e => {
     e.preventDefault();
+    sound.pause();
 
     fetch('./pages/game.html')
       .then(resp => resp.text())
@@ -128,15 +136,7 @@ function home() {
     setTimeout(() => app.appendChild(gameScript), 1000);
   }
 
-  createChars()
-
-  const sound = document.getElementById('sound');
-
-  function playSound() {
-    sound.currentTime = 0;
-    sound.play();
-  }
-
-  setTimeout(playSound, 1500);
+  playMusic();
+  createChars();
 }
 home();
