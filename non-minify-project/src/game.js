@@ -239,7 +239,8 @@ function game() {
     fetch('./pages/lose.html')
       .then(resp => resp.text())
       .then(html => app.innerHTML = html)
-      .then(app.appendChild(loseScript));
+
+    setTimeout(() => app.appendChild(loseScript), 1000);
   }
 
   function endGame() {
