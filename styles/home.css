@@ -26,14 +26,8 @@
 .char-2 {
   position: absolute;
 }
-#modal-content,
-#play-now,
-#titles h1 {
-  color: var(--white);
-}
 #leaderItem,
 #menu a,
-#play-now:hover,
 #titles h2 {
   color: var(--main-red);
 }
@@ -58,8 +52,10 @@
   overflow-y: hidden;
 }
 #menu {
+  display: flex;
   padding-top: 32px;
   height: 60px;
+  justify-content: space-between;
 }
 #menu ul {
   display: flex;
@@ -94,6 +90,16 @@
   height: 32px;
   width: 32px;
 }
+#play-now {
+  text-align: center;
+  color: var(--white) !important;
+  margin-left: 141px;
+}
+#play-now:hover {
+  transition: 0.2s ease-in;
+  color: var(--main-red) !important;
+  text-shadow: 2px 2px var(--main-black) !important;
+}
 #titles {
   margin-top: 180px;
   display: flex;
@@ -106,29 +112,15 @@
   padding-top: 28px;
   font-family: Valorant;
   font-weight: 400;
+  color: var(--white);
   font-size: 166px;
-}
-#play-now,
-#titles h2 {
-  font-size: 36px;
-  z-index: 1;
 }
 #titles h2 {
   font-family: JetBrainsMono-ExtraBold;
+  font-size: 36px;
   font-weight: 400;
+  z-index: 1;
   width: 100px;
-}
-#play-now {
-  margin-top: 130px;
-  position: fixed;
-  left: 45%;
-  padding: 16px 32px;
-  display: inline-block;
-  text-align: center;
-}
-#play-now:hover {
-  transition: 0.2s ease-in;
-  text-shadow: 5px 5px var(--main-black);
 }
 #characters {
   height: 670px;
@@ -199,6 +191,7 @@
   height: 376px;
   margin-top: 16px;
   overflow-y: auto;
+  color: var(--white);
   font-family: JetBrainsMono-Bold;
   padding: 16px;
 }
