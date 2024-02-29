@@ -9,6 +9,7 @@
   width: 100vw;
   max-width: 1440px;
   position: absolute;
+  top: 0;
 }
 
 #home {
@@ -21,9 +22,11 @@
 
 #menu {
   display: flex;
-  padding-top: 32px;
-  height: 60px;
+  padding: 16px 0;
+  height: 70px;
   justify-content: space-between;
+  border-bottom: 1px solid var(--main-black);
+  background-color: rgba(33, 38, 45, 0.3);
 }
 
 #menu ul {

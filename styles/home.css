@@ -2,6 +2,10 @@
 #home {
   height: 100vh;
 }
+#home,
+#menu {
+  background-color: rgba(33, 38, 45, 0.3);
+}
 #menu a,
 #play-now {
   text-decoration: none;
@@ -45,17 +49,18 @@
   -webkit-filter: blur(5px);
   width: 100vw;
   max-width: 1440px;
+  top: 0;
 }
 #home {
-  background-color: rgba(33, 38, 45, 0.3);
   width: 100%;
   overflow-y: hidden;
 }
 #menu {
   display: flex;
-  padding-top: 32px;
-  height: 60px;
+  padding: 16px 0;
+  height: 70px;
   justify-content: space-between;
+  border-bottom: 1px solid var(--main-black);
 }
 #menu ul {
   display: flex;
