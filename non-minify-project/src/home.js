@@ -85,15 +85,14 @@ function home() {
 
   btnRules.onclick = e => {
     e.preventDefault();
-    modal.style.top = '20%';
-    // modal.style.display = 'block'
+    modal.style.top = '15%';
     modalTitle.innerText = "Rules";
     modalContent.innerHTML = textRules;
   }
 
   btnAbout.onclick = e => {
     e.preventDefault();
-    modal.style.top = '20%';
+    modal.style.top = '15%';
     modalTitle.innerText = "About";
     modalContent.innerHTML = textAbout;
   }
@@ -121,7 +120,7 @@ function home() {
 
     modalContent.innerHTML = '';
     modalContent.appendChild(listLeaderboards);
-    modal.style.top = '20%';
+    modal.style.top = '15%';
     modalTitle.innerText = "Leaderboards";
   }
 
