@@ -28,22 +28,28 @@ function home() {
   const modalTitle = document.getElementById("modal-title");
   const modalContent = document.getElementById("modal-content");
 
-  const textRules = `GOAL
-    <br><br>
+  const textRules = `<h3>GOAL</h3>
+    <br>
     Win all the cards in the deck.
-    <br><br>
-    THE GAME
-    <br><br>
+    <br>
+    <br>
+    <br>
+    <h3>THE GAME</h3>
+    <br>
     The game is based on comparing the values ​​of your card with those of the other player. For your card to win, the chosen characteristic must have a higher value than your opponent's card.
     When your card wins, you win your opponent's card and the next card in your pile appears for a new turn.
-    <br><br>
-    SCOREBOARD
-    <br><br>
+    <br>
+    <br>
+    <br>
+    <h3>SCOREBOARD</h3>
+    <br>
     The scoreboard shows the number of cards you and your opponents have. The score changes automatically with each round.
     In case of a tie, the cards are returned to the bottom of each player's pile and a new round begins.
-    <br><br>
-    HOW TO PLAY
-    <br><br>
+    <br>
+    <br>
+    <br>
+    <h3>HOW TO PLAY</h3>
+    <br>
     1. To start, choose from the information on your card the one that you think has the value capable of beating your opponents' cards.
     <br><br>
     If you win - the other player's card will go to the back of your pile of cards and you continue choosing the information for your next card.

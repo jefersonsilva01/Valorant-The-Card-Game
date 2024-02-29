@@ -195,6 +195,15 @@
   font-family: JetBrainsMono-Bold;
   padding: 16px;
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--main-black-blur);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--main-red);
+}
 #leaderItem {
   margin: 16px 8px;
   width: 642px;
