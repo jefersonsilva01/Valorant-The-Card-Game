@@ -8,13 +8,15 @@
 }
 #menu a,
 #play-now {
-  text-decoration: none;
   font-family: JetBrainsMono-Bold;
   cursor: pointer;
 }
-#characters,
-#home {
-  position: relative;
+#menu,
+#menu a,
+#menu ul,
+#modal-area,
+#titles {
+  display: flex;
 }
 #bg,
 .char-1,
@@ -35,13 +37,31 @@
 #titles h2 {
   color: var(--main-red);
 }
-#leaderItem span,
-#menu a {
-  text-transform: uppercase;
-}
 #leaderItem:hover,
 #modal-header {
   background-color: var(--main-red);
+}
+#home,
+footer {
+  width: 100%;
+  position: relative;
+}
+#characters,
+#home,
+footer {
+  position: relative;
+}
+#github,
+#play-now,
+#spotify {
+  text-align: center;
+  text-decoration: none;
+}
+#github,
+#menu a,
+#play-now,
+#spotify {
+  text-decoration: none;
 }
 #bg {
   background-image: url("../assets/images/BG\ valorant.gif");
@@ -52,32 +72,26 @@
   top: 0;
 }
 #home {
-  width: 100%;
   overflow-y: hidden;
 }
 #menu {
-  display: flex;
   padding: 16px 0;
   height: 70px;
   justify-content: space-between;
   border-bottom: 1px solid var(--main-black);
 }
 #menu ul {
-  display: flex;
   list-style: none;
   justify-content: end;
   margin-right: 141px;
-}
-#menu a,
-#modal-header {
-  align-items: center;
-  display: flex;
 }
 #menu li {
   margin-right: 24px;
 }
 #menu a {
+  align-items: center;
   font-size: 24px;
+  text-transform: uppercase;
 }
 #menu span {
   width: 0;
@@ -96,7 +110,6 @@
   width: 32px;
 }
 #play-now {
-  text-align: center;
   color: var(--white) !important;
   margin-left: 141px;
 }
@@ -106,8 +119,7 @@
   text-shadow: 2px 2px var(--main-black) !important;
 }
 #titles {
-  margin-top: 180px;
-  display: flex;
+  margin-top: 60px;
   justify-content: center;
   align-items: center;
 }
@@ -130,7 +142,7 @@
 #characters {
   height: 670px;
   overflow: hidden;
-  top: -170px;
+  top: -150px;
 }
 .char-1,
 .char-2 {
@@ -168,8 +180,12 @@
   border: 3px solid var(--main-red);
   height: 472px;
   padding: 16px;
-  display: flex;
   flex-direction: column;
+}
+#leaderItem,
+#modal-header {
+  display: flex;
+  align-items: center;
 }
 #modal-header {
   width: 699px;
@@ -180,6 +196,13 @@
   font-family: Valorant;
   font-size: 24px;
   margin-left: 16px;
+}
+#github,
+#leaderItem span,
+#spotify {
+  font-family: JetBrainsMono-Bold;
+  text-transform: uppercase;
+  font-size: 16px;
 }
 #modal-header span {
   background-color: unset;
@@ -214,16 +237,53 @@
   width: 642px;
   height: 60px;
   border: 1px solid var(--main-red);
-  display: flex;
-  align-items: center;
   justify-content: space-between;
 }
+footer,
+footer div {
+  display: flex;
+  align-items: center;
+}
 #leaderItem span {
-  font-size: 16px;
-  font-family: JetBrainsMono-Bold;
   padding: 0 16px;
 }
 #leaderItem:hover {
   border: 3.2px solid var(--white);
   color: var(--main-black);
+}
+footer {
+  border-top: 1px solid var(--white);
+  height: 100px;
+  background-color: var(--main-black) !important;
+  bottom: 0;
+  justify-content: space-between;
+}
+#github,
+#spotify {
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  letter-spacing: 4px;
+}
+#github {
+  float: right;
+  margin-right: 144px;
+  justify-self: end;
+}
+#spotify {
+  margin-left: 24px;
+  justify-self: flex-start;
+}
+#github img,
+#spotify img {
+  margin-left: 16px;
+  height: 24px;
+  width: 24px;
+}
+#riotgames {
+  margin-left: 144px;
+}
+#riotgames img {
+  height: 24px;
+  width: 80px;
 }
