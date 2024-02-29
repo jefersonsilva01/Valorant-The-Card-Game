@@ -33,11 +33,10 @@
 .card-area {
   text-align: center;
 }
-#input,
-#modal-card {
-  display: none;
+#game-area a,
+#input {
   z-index: 1;
-  top: 25%;
+  display: block;
 }
 #game-area h3,
 #modal-card,
@@ -134,11 +133,9 @@
   margin: 0 16px;
 }
 #game-area a {
-  display: block;
   text-decoration: none;
   color: var(--white);
   font-size: 32px;
-  z-index: 1;
 }
 #game-area a:hover {
   text-shadow: 2px 2px var(--main-black);
@@ -149,7 +146,9 @@
   height: 247px;
   padding: 16px;
   position: absolute;
+  top: -100%;
   left: 20%;
+  transition: top 0.5s ease-in-out;
 }
 #input-area {
   border: 3px solid var(--main-red);
@@ -342,8 +341,11 @@
   right: -1400px;
 }
 #modal-card {
+  display: none;
   width: 364px;
   position: absolute;
+  z-index: 1;
+  top: 25%;
   left: 37%;
   background-color: var(--main-black-blur);
 }

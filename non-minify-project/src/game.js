@@ -26,11 +26,11 @@ function game() {
   const cpuScore = document.getElementById('score-cpu');
   const cpuTurn = document.getElementById('cpu-turn');
 
-  const audios = ['DIE FOR YOU', 'FIRE AGAIN', 'VISIONS', 'TICKING AWAY'];
+  const audios = ['CALAMITOUS', 'LA CRIATURA', 'HEIST', 'PRESTIGE', 'TRANQUIL'];
 
   const BGImage = document.querySelector('#game');
 
-  const BG = ['BG', 'BG2', 'BG3', 'BG4'];
+  const BG = ['BG', 'BG4'];
   const BGSelected = BG[Math.floor(Math.random() * BG.length)];
 
   let turnStats = 0;
@@ -249,7 +249,7 @@ function game() {
       updateScreen();
       loseScreen();
     } else if (result === 'cpu lose') {
-      input.style.display = 'block';
+      input.style.top = '30%';
       clearInterval(intervaleIdMilleseconds);
       clearInterval(intervaleIdSeconds);
       updateScreen();
@@ -420,14 +420,16 @@ function game() {
     if (inputValue.value.length >= 3) {
       leaders.unshift(playerLeaderBoard);
 
-      input.style.display = 'none';
+      input.style.top = '-100%';
 
       sound.pause();
 
-      fetch('./pages/home.html')
-        .then(resp => resp.text())
-        .then(html => app.innerHTML = html)
-        .then(app.appendChild(homeScript));
+      setTimeout(() => {
+        fetch('./pages/home.html')
+          .then(resp => resp.text())
+          .then(html => app.innerHTML = html)
+          .then(app.appendChild(homeScript));
+      }, 1000);
     }
   }
 

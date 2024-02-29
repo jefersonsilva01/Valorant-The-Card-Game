@@ -155,16 +155,17 @@
   margin-right: 28px;
 }
 #modal {
-  display: none;
+  display: block;
   width: 763px;
   height: 504px;
   padding: 16px;
   z-index: 1;
-  top: 20%;
+  top: -100%;
   left: 20%;
   background-color: var(--main-black-blur);
   backdrop-filter: blur(5px);
   box-shadow: 10px 10px var(--main-black);
+  transition: top 0.5s ease-in-out;
 }
 #modal-area {
   border: 3px solid var(--main-red);

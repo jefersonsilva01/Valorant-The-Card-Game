@@ -10,13 +10,12 @@ function home() {
   const gameScript = document.createElement('script');
   gameScript.setAttribute('src', './src/game.js');
 
-  const audios = ['CALAMITOUS', 'LA CRIATURA', 'HEIST', 'PRESTIGE', 'TRANQUIL', 'MIND THE DROP'];
   let sound;
 
   const char1 = document.querySelector('.char-1');
   const char2 = document.querySelector('.char-2')
 
-  const charsArray = [...characters]
+  const charsArray = [...characters];
 
   const [charSelected1] = charsArray.splice(
     Math.floor(Math.random() * charsArray.length), 1
@@ -64,10 +63,9 @@ function home() {
   <br><br>`
 
   function playMusic() {
-    const getAudio = audios[Math.floor(Math.random() * audios.length)];
-    sound = new Audio(`./assets/audios/${getAudio}.mp3`);
+    sound = new Audio('./assets/audios/MIND THE DROP.mp3');
     sound.volume = 1;
-    sound.addEventListener('ended', () => playMusic());
+    sound.loop = true;
     sound.play();
   }
 
@@ -81,14 +79,15 @@ function home() {
 
   btnRules.onclick = e => {
     e.preventDefault();
-    modal.style.display = "block";
+    modal.style.top = '20%';
+    // modal.style.display = 'block'
     modalTitle.innerText = "Rules";
     modalContent.innerHTML = textRules;
   }
 
   btnAbout.onclick = e => {
     e.preventDefault();
-    modal.style.display = "block";
+    modal.style.top = '20%';
     modalTitle.innerText = "About";
     modalContent.innerHTML = textAbout;
   }
@@ -116,17 +115,17 @@ function home() {
 
     modalContent.innerHTML = '';
     modalContent.appendChild(listLeaderboards);
-    modal.style.display = "block";
+    modal.style.top = '20%';
     modalTitle.innerText = "Leaderboards";
   }
 
   btnClose.onclick = () => {
-    modal.style.display = "none";
+    modal.style.top = '-100%';
   }
 
   window.onclick = e => {
     if (e.target.id === 'home') {
-      modal.style.display = "none";
+      modal.style.top = '-100%';
     }
   }
 
