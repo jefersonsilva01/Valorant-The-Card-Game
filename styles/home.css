@@ -2,10 +2,6 @@
 #home {
   height: 100vh;
 }
-#home,
-#menu {
-  background-color: rgba(33, 38, 45, 0.3);
-}
 #menu a,
 #play-now {
   font-family: JetBrainsMono-Bold;
@@ -65,8 +61,7 @@ footer {
 }
 #bg {
   background-image: url("../assets/images/BG\ valorant.gif");
-  filter: blur(5px);
-  -webkit-filter: blur(5px);
+  filter: brightness(0.5) blur(2px);
   width: 100vw;
   max-width: 1440px;
   top: 0;
@@ -79,6 +74,7 @@ footer {
   height: 70px;
   justify-content: space-between;
   border-bottom: 1px solid var(--main-black);
+  background-color: rgba(33, 38, 45, 0.3);
 }
 #menu ul {
   list-style: none;

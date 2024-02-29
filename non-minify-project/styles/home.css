@@ -1,10 +1,9 @@
 #bg {
   background-image: url("../assets/images/BG\ valorant.gif");
-  filter: blur(5px);
-  -webkit-filter: blur(5px);
+  filter: brightness(0.5) blur(2px);
   background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
+  background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
   max-width: 1440px;
@@ -13,7 +12,6 @@
 }
 
 #home {
-  background-color: rgba(33, 38, 45, 0.3);
   height: 100vh;
   width: 100%;
   position: relative;
