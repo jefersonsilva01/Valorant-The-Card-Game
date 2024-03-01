@@ -53,11 +53,11 @@
   width: 0px;
   overflow: hidden;
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 1s ease-in-out, width 0.5s ease-in-out;
 }
 
 #menu a:hover > span {
-  width: auto;
+  width: 100%;
   opacity: 1;
   text-shadow: 2px 2px var(--main-black);
 }
