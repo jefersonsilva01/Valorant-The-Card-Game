@@ -24,7 +24,7 @@ O design do projeto foi feito utilizando o [Figma](https://www.figma.com/) e sua
 
 Para este projeto foram utilizada as seguintes tecnologias:
 
-[![My Skills](https://skillicons.dev/icons?i=vscode,bash,html,css,js,git,github,figma,jasmine)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=linux,ubuntu,bash,vscode,html,css,js,git,github,figma,jasmine)](https://skillicons.dev)
 
 # Executando o projeto
 
