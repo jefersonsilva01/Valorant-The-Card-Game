@@ -32,6 +32,7 @@
   color: var(--main-red);
 }
 #leaderItem:hover,
+#menu .detail,
 #modal-header {
   background-color: var(--main-red);
 }
@@ -98,6 +99,10 @@ footer {
   margin-right: 8px;
   height: 32px;
   width: 32px;
+}
+#menu .detail {
+  height: 5px;
+  width: 30px;
 }
 #play-now {
   color: var(--white) !important;

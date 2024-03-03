@@ -68,6 +68,12 @@
   width: 32px;
 }
 
+#menu .detail {
+  height: 5px;
+  width: 30px;
+  background-color: var(--main-red);
+}
+
 #play-now {
   text-decoration: none;
   font-family: JetBrainsMono-Bold;
