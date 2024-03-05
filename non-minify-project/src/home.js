@@ -25,6 +25,7 @@ function home() {
   );
 
   const modal = document.getElementById("modal");
+  const modalArea = document.getElementById("modal-area");
   const modalTitle = document.getElementById("modal-title");
   const modalContent = document.getElementById("modal-content");
 
@@ -85,14 +86,18 @@ function home() {
 
   btnRules.onclick = e => {
     e.preventDefault();
-    modal.style.top = '15%';
+    modal.style.opacity = '1';
+    modal.style.visibility = 'visible';
+    modalArea.style.top = '15%';
     modalTitle.innerText = "Rules";
     modalContent.innerHTML = textRules;
   }
 
   btnAbout.onclick = e => {
     e.preventDefault();
-    modal.style.top = '15%';
+    modal.style.opacity = '1';
+    modal.style.visibility = 'visible';
+    modalArea.style.top = '20%';
     modalTitle.innerText = "About";
     modalContent.innerHTML = textAbout;
   }
@@ -120,19 +125,24 @@ function home() {
 
     modalContent.innerHTML = '';
     modalContent.appendChild(listLeaderboards);
-    modal.style.top = '15%';
+    modal.style.opacity = '1';
+    modal.style.visibility = 'visible';
+    modalArea.style.top = '15%';
     modalTitle.innerText = "Leaderboards";
   }
 
   btnClose.onclick = () => {
-    modal.style.top = '-100%';
+    modal.style.opacity = '0';
+    modal.style.visibility = 'hidden';
+    modalArea.style.top = '-100%';
   }
 
-  window.onclick = e => {
-    if (e.target.id === 'home') {
-      modal.style.top = '-100%';
-    }
+  modal.onclick = e => {
+    modal.style.opacity = '0';
+    modal.style.visibility = 'hidden';
+    modalArea.style.top = '-100%';
   }
+
 
   btnPlayGame.onclick = e => {
     e.preventDefault();

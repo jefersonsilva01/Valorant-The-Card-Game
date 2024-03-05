@@ -13,6 +13,7 @@ function game() {
   const timer = document.getElementById('timer');
 
   const input = document.getElementById("input");
+  const inputArea = document.getElementById("input-area");
 
   const modalCard = document.getElementById('modal-card');
   const modalCardTitle = document.getElementById('modal-card-title');
@@ -249,7 +250,9 @@ function game() {
       updateScreen();
       loseScreen();
     } else if (result === 'cpu lose') {
-      input.style.top = '30%';
+      input.style.opacity = '1';
+      input.style.visibility = 'visible';
+      inputArea.style.top = '15%';
       clearInterval(intervaleIdMilleseconds);
       clearInterval(intervaleIdSeconds);
       updateScreen();
@@ -420,7 +423,9 @@ function game() {
     if (inputValue.value.length >= 3) {
       leaders.unshift(playerLeaderBoard);
 
-      input.style.top = '-100%';
+      input.style.opacity = '0';
+      input.style.visibility = 'hidden';
+      inputArea.style.top = '-100%';
 
       sound.pause();
 
