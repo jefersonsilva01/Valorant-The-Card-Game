@@ -137,12 +137,13 @@ function home() {
     modalArea.style.top = '-100%';
   }
 
-  modal.onclick = e => {
-    modal.style.opacity = '0';
-    modal.style.visibility = 'hidden';
-    modalArea.style.top = '-100%';
+  window.onclick = e => {
+    if (e.target.id === 'modal') {
+      modal.style.opacity = '0';
+      modal.style.visibility = 'hidden';
+      modalArea.style.top = '-100%';
+    };
   }
-
 
   btnPlayGame.onclick = e => {
     e.preventDefault();
