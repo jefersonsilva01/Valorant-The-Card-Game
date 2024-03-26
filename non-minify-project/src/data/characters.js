@@ -327,5 +327,35 @@ const characters = [
       agility: 7,
       tech: 6
     }
+  },
+
+  {
+    id: 23,
+    name: "iso",
+    cover: "./assets/images/iso.png",
+    avatar: "./assets/images/iso-avatar.png",
+    class: "./assets/images/duelist.svg",
+    bio: "Chinese fixer for hire, Iso falls into a flow state to dismantle the opposition. Reconfiguring ambient energy into bulletproof protection, he advances with focus towards his next duel to the death.",
+    skills: {
+      attack: 5,
+      defense: 6,
+      agility: 8,
+      tech: 3
+    }
+  },
+
+  {
+    id: 24,
+    name: "clover",
+    cover: "./assets/images/clover.png",
+    avatar: "./assets/images/clover-avatar.png",
+    class: "./assets/images/controller.svg",
+    bio: "Scottish troublemaker Clove makes mischief for enemies in both the heat of combat and the cold of death. The young immortal keeps foes guessing, even from beyond the grave, their return to the living only ever a moment away.",
+    skills: {
+      attack: 8,
+      defense: 7,
+      agility: 5,
+      tech: 6
+    }
   }
 ]
