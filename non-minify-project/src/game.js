@@ -153,6 +153,12 @@ function game() {
 
     cardContainer.appendChild(cardInner);
     gameArea.appendChild(cardContainer);
+
+    setTimeout(() => {
+      const cardAvatarPlayer = document.querySelector(`.card-avatar-${player}`)
+      cardAvatarPlayer.onmouseover = () => cardAvatarPlayer.src = `${card.avatarHover}`
+      cardAvatarPlayer.onmouseleave = () => cardAvatarPlayer.src = `${card.avatar}`
+    }, 2000);
   }
 
   function setSkills(player) {

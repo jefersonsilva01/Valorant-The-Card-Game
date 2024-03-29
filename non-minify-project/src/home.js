@@ -77,10 +77,10 @@ function home() {
   }
 
   function createChars() {
-    char1.setAttribute('src', `${charSelected1.avatar}`)
+    char1.setAttribute('src', `${charSelected1.avatarHover}`)
     char1.classList.add('loaded');
 
-    char2.setAttribute('src', `${charSelected2.avatar}`)
+    char2.setAttribute('src', `${charSelected2.avatarHover}`)
     char2.classList.add('loaded');
   }
 

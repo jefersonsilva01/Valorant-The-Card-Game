@@ -300,6 +300,8 @@
   height: 24px !important;
   float: right !important;
   margin-top: 8px !important;
+  border-radius: 50px;
+  box-shadow: 2px 2px;
 }
 
 .skill-player,
@@ -332,6 +334,8 @@
   cursor: pointer;
   position: absolute;
   right: 0;
+  border-radius: 50px;
+  box-shadow: 3px 3px;
 }
 
 .remove-player-left {

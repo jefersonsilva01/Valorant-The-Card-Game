@@ -32,6 +32,16 @@
 #timer {
   color: var(--main-red);
 }
+.card-info .name,
+.skill-cpu span,
+.skill-player span {
+  font-family: Valorant !important;
+  color: var(--white) !important;
+}
+.card-info .name,
+.turn {
+  color: var(--white) !important;
+}
 #game-area a,
 #game-area h3,
 #game-area span,
@@ -109,7 +119,6 @@
 }
 .turn {
   background-color: var(--main-red);
-  color: var(--white) !important;
   border: 3.2px solid var(--white) !important;
 }
 .card-area {
@@ -296,26 +305,23 @@
   height: 24px !important;
   width: 24px !important;
 }
-.card-info .name,
-.skill-cpu span,
-.skill-player span {
-  font-family: Valorant !important;
-  color: var(--white) !important;
-  border: none !important;
-}
 .card-info .name {
   font-size: 23px !important;
   display: inline-block;
+  border: none !important;
   text-shadow: 2px 2px 0 var(--main-black);
 }
 .class {
   float: right !important;
   margin-top: 8px !important;
+  border-radius: 50px;
+  box-shadow: 2px 2px;
 }
 .skill-cpu span,
 .skill-player span {
   font-size: 20px !important;
   text-align: center;
+  border: none !important;
   text-shadow: 2px 2px var(--main-black);
 }
 .skill-player span:hover {
@@ -329,6 +335,8 @@
   cursor: pointer;
   position: absolute;
   right: 0;
+  border-radius: 50px;
+  box-shadow: 3px 3px;
 }
 .remove-player-left {
   rotate: -30deg;

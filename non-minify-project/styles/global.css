@@ -28,6 +28,7 @@
 
 body {
   background-color: var(--main-black);
+  cursor: url("../assets/images/cursor.png"), auto;
 }
 
 #app {
