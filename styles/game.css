@@ -3,10 +3,6 @@
 #timer {
   font-size: 32px;
   color: var(--main-red);
-}
-#game-area a,
-#timer {
-  margin-top: 64px;
   text-align: center;
 }
 #game,
@@ -89,26 +85,25 @@
   background-size: cover;
   height: 100vh;
   width: 100%;
-  overflow-y: scroll;
   overflow-x: hidden;
   --dy: 1;
   --dx: 1;
   --dz: 0;
 }
 #timer {
-  border-top: 3px solid var(--main-red);
-  border-bottom: 3px solid var(--main-red);
+  text-shadow: 5px 5px var(--main-black);
   padding: 8px 0;
-  float: right;
-  width: 150px;
-  margin-right: 260px;
+  position: absolute;
+  right: 200px;
+  top: 50px;
+  width: 100px;
 }
 #game-area {
   display: flex;
   justify-content: space-between;
+  margin: 0 150px;
   align-items: center;
   top: 200px;
-  left: 200px;
 }
 #game-area h3 {
   border: 3.2px solid var(--main-red);
@@ -154,6 +149,7 @@
 #game-area a {
   display: block;
   font-size: 32px;
+  margin-top: 64px;
   z-index: 1;
 }
 #game-area a:hover {
@@ -365,7 +361,7 @@
   width: 364px;
   position: absolute;
   top: 25%;
-  left: 37%;
+  left: 36%;
 }
 #modal-card-area {
   border: 3px solid var(--main-red);

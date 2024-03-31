@@ -55,9 +55,9 @@ function game() {
     intervaleIdMilleseconds = setInterval(() => {
       milleSeconds++;
       let secondsText = seconds % 60 < 10 ? '0' + seconds % 60 : seconds % 60
-      let minutesText = Math.floor(seconds / 60) < 10
-        ? '0' + Math.floor(seconds / 60)
-        : seconds / 60;
+      let minutesText = Math.round(Math.floor(seconds / 60)).toFixed() < 10
+        ? '0' + Math.round(Math.floor(seconds / 60)).toFixed()
+        : Math.round(Math.floor(seconds / 60)).toFixed();
 
       timer.innerText = `${minutesText}:${secondsText}.0${milleSeconds % 10}`;
     }, 100);
