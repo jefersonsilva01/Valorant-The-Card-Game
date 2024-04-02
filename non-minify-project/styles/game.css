@@ -211,13 +211,6 @@
   transition: background 0.5s ease-in-out;
 }
 
-/* .card-flip-player {
-  margin-left: 9.5%;
-}
-
-.card-flip-cpu {
-} */
-
 .card-flip-player:hover {
   background: linear-gradient(#1b1d20, #1b1d20) padding-box,
     linear-gradient(144deg, var(--main-black), var(--white)) border-box;
