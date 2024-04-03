@@ -154,9 +154,11 @@ function game() {
     cardContainer.appendChild(cardInner);
     gameArea.appendChild(cardContainer);
 
-    const cardAvatarPlayer = document.querySelector(`.card-avatar-${player}`)
-    cardAvatarPlayer.onmouseover = () => cardAvatarPlayer.src = `${card.avatarHover}`
-    cardAvatarPlayer.onmouseleave = () => cardAvatarPlayer.src = `${card.avatar}`
+    setTimeout(() => {
+      const cardAvatarPlayer = document.querySelector(`.card-avatar-${player}`)
+      cardAvatarPlayer.onmouseover = () => cardAvatarPlayer.src = `${card.avatarHover}`
+      cardAvatarPlayer.onmouseleave = () => cardAvatarPlayer.src = `${card.avatar}`
+    }, 1000)
   }
 
   function setSkills(player) {
