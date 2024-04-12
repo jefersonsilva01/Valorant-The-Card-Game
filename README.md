@@ -2,7 +2,10 @@
 
 <h1>VALORANT THE CARD GAME</h1>
 
-<h2>Table of content</h2>
+<details>
+  <summary>
+    <h2>Table of content</h2>
+  </summary>
 
 - [About the project](#about-the-project)
 - [Rules](#rules)
@@ -10,6 +13,7 @@
 - [Tech stack](#tech-stack)
 - [Running the project](#running-the-project)
 - [License](#license)
+</details>
 
 ## About the project
 

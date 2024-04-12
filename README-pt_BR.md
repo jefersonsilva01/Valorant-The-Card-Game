@@ -2,7 +2,10 @@
 
 <h1>VALORANT THE CARD GAME</h1>
 
-<h2>Índice</h2>
+<details>
+  <summary>
+    <h2>Índice</h2>
+  </summary>
 
 - [Sobre o projeto](#sobre-o-projeto)
 - [Regras](#regras)
@@ -10,6 +13,7 @@
 - [Tecnologias](#tecnologias)
 - [Executando o projeto](#executando-o-projeto)
 - [Licença](#licença)
+</details>
 
 ## Sobre o projeto
 
