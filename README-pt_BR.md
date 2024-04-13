@@ -32,7 +32,7 @@ Ganhe todas as cartas do baralho.
 O jogo baseia-se na comparação dos valores da sua carta com os do outro jogador. Para que a sua carta ganhe, a característica escolhida deve ter um valor superior ao da carta do seu oponente.
 Quando a sua carta ganha, você ganha a carta do seu oponente e a próxima carta da sua pilha aparece para um novo turno.
 
-<h4>Placar</h4>
+<h4>PLACAR</h4>
 
 O placar mostra o número de cartas que você e seus oponentes possuem. A pontuação muda automaticamente a cada rodada.
 Em caso de empate, as cartas são devolvidas ao fundo da pilha de cada jogador e inicia-se uma nova rodada.
