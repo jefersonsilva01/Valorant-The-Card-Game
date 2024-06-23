@@ -74,6 +74,8 @@ function game() {
   }
 
   function cardMove() {
+    if (playGame.PlayerCards.length === 0) return;
+
     const el = document.querySelector('.card-flip-player');
 
     const setProp = (el, prop, value) => el.style.setProperty(prop, value);
@@ -101,6 +103,8 @@ function game() {
   }
 
   function createCards(arrayCards, player) {
+    if (arrayCards.length === 0) return;
+
     const card = arrayCards[0]
     const cardContainer = document.createElement('div');
     cardContainer.classList.add(`card-flip-${player}-fliped`, `card-flip-${player}`);
@@ -308,6 +312,8 @@ function game() {
   }
 
   function cpuPlayCard() {
+    if (playGame.CPUCards.length === 0) return;
+
     const cardCPUId = parseInt(document.querySelector('.card-cpu').id);
     const cardPlayerId = parseInt(document.querySelector('.card-player').id);
     let maxSkill = 0, nameSkill
@@ -375,6 +381,8 @@ function game() {
   }
 
   function modalCards() {
+    if (playGame.CPUCards.length === 0 || playGame.PlayerCards.length === 0) return;
+
     const infoCardPlayer = document.querySelector('.info-player');
     const infoCardCPU = document.querySelector('.info-cpu');
 
